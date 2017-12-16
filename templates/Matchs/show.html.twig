@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    <br/>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.division, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+    {{ form_row(form.league, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+
+    </br>
+    {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
+
+
+    {{ form_end(form) }}
+
+    <div class="page-header">
+        <h1>Nadchodzące mecze: <small></small></h1>
+
+    </div>
+    {% if matchs is defined %}
+        <div class="container" style="background-color: #122b40">
+            {% for matchs in matchs %}
+
+            {{ matchs.hostTeam }}
+            Vs
+            {{ matchs.guestTeam }}
+
+            Data: {{ matchs.start_match|date("Y-m-d H:i:s") }}
+
+
+        </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    {#<body style="margin-top: 1%; background: #122b40">#}
+</br>
+<div class="container" >
+    {#{% for message in app.flashes("success") %}#}
+        {#<div class="alert alert-success" role="alert">{{ message }}</div>#}
+    {#{% endfor %}#}
+
+    {#{% for message in app.flashes("error") %}#}
+        {#<div class="alert alert-danger" role="alert">{{ message }}</div>#}
+    {#{% endfor %}#}
+</div>
+<div class="container">
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.name, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+    {{ form_row(form.surname, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+    {{ form_row(form.club, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+    {{ form_row(form.dateOfBirth, {'attr': { 'style': 'color:black;'}}) }}
+
+
+    </br>
+    {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
+
+
+
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,16 @@
+app_add_match:
+    path: /add
+    controller: App\Controller\addMatchController::addMatchAction
+
+app_show_match:
+    path: /matchs
+    controller: App\Controller\showMatchsController::showMatchAction
+
+app_add_details_fb:
+    path: /add/footballer
+    controller: App\Controller\addDetailsFootballerController::addDetailsAction
+
+app_index:
+    path: /
+    controller: App\Controller\indexController::showIndexAction
+
