@@ -15,11 +15,17 @@
     <body style="background-color: #333; color: white">
     <div class="container">
         <h1>NaSpalonym.pl</h1>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse" style="padding: 10px;">
             <ul>
+            <a href="{{ path('app_live_show') }}" class="btn btn-default">Live</a>
+            <a href="{{ path('app_search_fb') }}" class="btn btn-default">Wyszukaj Piłkarza</a>
+            <a href="{{ path('app_search_team') }}" class="btn btn-default">Wyszukaj Drużynę</a>
+
+
             <a href="{{ path('app_add_match') }}" class="btn btn-default">Dodaj mecz</a>
             <a href="{{ path('app_show_match') }}" class="btn btn-default">Wyszukaj mecze</a>
-            <a href="{{ path('app_add_details_fb') }}" class="btn btn-default">Dodaj piłkarza</a>
+            <a href="{{ path('app_add_fb') }}" class="btn btn-default">Dodaj piłkarza</a>
+            <a href="{{ path('app_show_stats') }}" class="btn btn-default">Statystyki</a>
             </ul>
         </nav>
         {% block body %}

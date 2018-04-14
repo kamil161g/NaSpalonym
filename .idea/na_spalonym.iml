@@ -207,5 +207,8 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="jquery-1.11.0" level="application" />
+    <orderEntry type="library" name="jquery-migrate-1.2.1" level="application" />
+    <orderEntry type="library" name="jquery-2.2.4" level="application" />
   </component>
 </module>

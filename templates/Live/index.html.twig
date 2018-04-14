@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+    <div class="page-header">
+        <h1>Aktualnie rozgrywane mecze: <small></small></h1>
+
+    </div>
+    {% if live != 0 %}
+        <div class="container" style="background-color: #122b40">
+        {% for live in live %}
+
+            <h3>
+                <a href="{{ path('app_details_match', {'id': live.id}) }}" style="color: red; text-decoration: none;">
+                    {{ live.hostTeam }}
+                    Vs
+                    {{ live.guestTeam }}
+
+                    {{ live.goalHost }}
+                     :
+                    {{ live.goalGuest }}
+                </a>
+            </h3>
+
+            <br/>
+        {% endfor %}
+        </div>
+    {% else %}
+        <h1 style="color: #C82829">Nie ma aktualnie meczy.</h1>
+        </div>
+    {% endif %}
+
+
+    </div>
+
+
+{% endblock %}

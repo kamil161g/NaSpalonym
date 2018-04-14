@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.season, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
+    {{ form_end(form) }}
+
+
+
+
+     {% if result is defined %}
+        <h1>TOP 10 Strzelców sezon : {{ season }} </h1>
+         <table class="table table-bordered">
+            <tr style="color: #F5871F; border: 1px black solid">
+                <td><h4>Imię</h4></td>	<td><h4>Nazwisko</h4></td>
+                <td><h4>Klub</h4></td>	<td><h4>Mecze</h4></td>
+                <td><h4>Gole</h4></td>
+
+
+            </tr>
+             {% for result in result %}
+
+                 <tr>
+                     <td>{{ result.shooter.name }}</td>	<td>{{ result.shooter.surname }}</td>
+                     <td>KLUB</td>	<td>{{ result.shooter.footballer.0.matchs }}</td>
+                     <td>{{ result.shooter.footballer.0.goals }}</td>
+
+                 </tr>
+
+             {% endfor %}
+
+
+
+         </table>
+
+
+
+     {% endif %}
+
+    {% endblock %}

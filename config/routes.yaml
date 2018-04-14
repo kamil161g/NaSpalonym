@@ -1,16 +1,65 @@
-app_add_match:
-    path: /add
-    controller: App\Controller\addMatchController::addMatchAction
-
-app_show_match:
-    path: /matchs
-    controller: App\Controller\showMatchsController::showMatchAction
-
-app_add_details_fb:
-    path: /add/footballer
-    controller: App\Controller\addDetailsFootballerController::addDetailsAction
 
 app_index:
     path: /
     controller: App\Controller\indexController::showIndexAction
 
+app_live_show:
+    path: /live
+    controller: App\Controller\liveController::showLiveAction
+
+#----------------------------------------------------------------------------------------FOOTBALLER:
+app_how_ad_fb:
+    path: /add/fbdetails
+    controller: App\Controller\addDetailsFootballerController:howAddAction
+
+app_details_fb:
+    path: /footballer/{id}
+    controller: App\Controller\detailsFootballerController::detailsFootballerAction
+
+app_search_fb:
+    path: /searchfb
+    controller: App\Controller\searchFootballerController::searchFootballerAction
+
+app_add_fb:
+    path: /add/footballer/
+    controller: App\Controller\addFootballerController::addFootballerAction
+
+#app_add_details_finish_fb:
+#    path: /add/footballer/{id}/}/{name}
+#    controller: App\Controller\addDetailsFootballerController::addDetailsFinishAction
+
+#----------------------------------------------------------------------------------------TEAM:
+
+app_search_team:
+    path: /searchteam
+    controller: App\Controller\searchTeamController::searchTeamAction
+
+app_details_team:
+    path: /detailsteam/{id}
+    controller: App\Controller\detailsTeamController::detailsTeamAction
+
+#----------------------------------------------------------------------------------------MATCHS:
+
+
+app_show_match:
+    path: /matchs
+    controller: App\Controller\showMatchsController::showMatchAction
+
+app_add_match:
+    path: /add
+    controller: App\Controller\addMatchController::createAction
+
+app_details_match:
+    path: /match/{id}
+    controller: App\Controller\detailsMatchController::showDetailsAction
+
+app_change_score:
+    path: /match/changescore/{id}
+    controller: App\Controller\detailsMatchController::ChangeScoreAction
+
+
+#----------------------------------------------------------------------------------------STATS:
+
+app_show_stats:
+    path: /stats
+    controller: App\Controller\StatsController:showStatsAction

@@ -14,7 +14,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class addDetailsFootballerType extends AbstractType
+class addFootballerType extends AbstractType
 {
         public function buildForm(FormBuilderInterface $builder, array $options)
         {
@@ -46,21 +46,10 @@ class addDetailsFootballerType extends AbstractType
                 ])
 
                 ->add('dateOfBirth', BirthdayType::class,[
-                    'label' => 'Data urodzenia:'
+                    'label' => 'Data urodzenia:',
+                    "data" => new \DateTime('1980'),
                 ])
 
-                ->add('club', TextType::class,[
-                        'constraints' => new NotBlank([
-                            'message' => 'To pole nie może być puste.'
-                        ]),
-                    'constraints' => new Length([
-                            'min'        => 3,
-                            'minMessage' => 'Klub musi zawierać minimum 3 znaki.',
-                            'max'        => 24,
-                            'maxMessage' => 'Klub może zawierać maksymalnie 24 znaki.'
-                        ]),
-                    'label' => 'Klub:'
-                ])
                 ->add('submit',SubmitType::class, ['label' => 'Dodaj']);
 
 

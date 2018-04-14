@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+    <div class="container">
+
+
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.id, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.id_club, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+
+        </br>
+        {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
+
+
+
+        {{ form_end(form) }}
+    </div>
+
+
+{% endblock %}

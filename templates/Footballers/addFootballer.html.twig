@@ -16,16 +16,12 @@
 </div>
 <div class="container">
 
-
     {{ form_start(form) }}
     {{ form_errors(form) }}
 
-    {{ form_row(form.season, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
-    {{ form_row(form.goals, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
-    {{ form_row(form.matchs, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
-    {{ form_row(form.position, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
-    {#{{ form_row(form.club, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}#}
-
+    {{ form_row(form.name, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+    {{ form_row(form.surname, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+    {{ form_row(form.dateOfBirth, {'attr': { 'style': 'color:black;'}}) }}
 
 
     </br>

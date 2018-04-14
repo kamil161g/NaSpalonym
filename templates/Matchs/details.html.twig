@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    {% for matchs in matchs %}
+        <a href="{{ path('app_change_score',{'id': matchs.id}) }}" class="btn btn-primary" >Zmień wynik</a></br></br>
+
+            <div class="panel-heading" style="background-color: #868686; float: left; width: 49%;">
+                <h3>
+                    {{ matchs.hostTeam }} <div class="panel-default" style="float: right; color: #C82829">{{ matchs.goalHost }}</div>
+                </h3>
+                <h5>GOAL! 12min. Marian Kowalski</h5>
+                <hr/>
+                <h4>Zawodnicy:</h4>
+            </div>
+
+            <div class="panel-heading" style="background-color: #868686; float: right; width: 49%;">
+                <h3>
+                    {{ matchs.guestTeam }} <div class="panel-default" style="float: right; color: #C82829;">{{ matchs.goalGuest }}</div>
+                </h3>
+                <hr/>
+                <h4>Zawodnicy:</h4>
+            </div>
+
+
+
+    {% endfor %}
+
+
+{% endblock %}

@@ -24,14 +24,14 @@
     {% if matchs is defined %}
         <div class="container" style="background-color: #122b40">
             {% for matchs in matchs %}
+            <h3>
+                {{ matchs.hostTeam }}
+                Vs
+                {{ matchs.guestTeam }}
 
-            {{ matchs.hostTeam }}
-            Vs
-            {{ matchs.guestTeam }}
+                Data: {{ matchs.startMatch|date("Y-m-d H:i:s") }}
 
-            Data: {{ matchs.start_match|date("Y-m-d H:i:s") }}
-
-
+            </h3>
         </div>
             {% endfor %}
         </div>

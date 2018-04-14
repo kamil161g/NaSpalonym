@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <div class="container">
+
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.surname, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+
+
+        </br>
+        {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
+
+
+        {{ form_end(form) }}
+    </div>
+
+        <h4>Ostatnio dodani:(dla admina)</h4>
+         {% for last in lastAdd %}
+
+             <h4><li><a href="{{ path('app_details_fb',{'id': last.id}) }}">
+                 {{ last.name }} {{ last.surname }} Id:{{ last.id }}
+             </a> </li></h4>
+
+        {% endfor %}
+<hr>
+    {% if result is defined %}
+        {% for result in result %}
+
+            <h3>
+                <a href="{{ path('app_details_fb',{'id': result.id}) }}" style="text-decoration: none">{{ result.name~' '~result.surname }}</a>
+            </h3>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

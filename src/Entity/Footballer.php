@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,6 +16,14 @@ class Footballer
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
 
     /**
@@ -32,10 +41,22 @@ class Footballer
      */
     private $DateOfBirth;
 
+
     /**
-     * @ORM\Column(type="string", length=255 ,nullable=true)
+     * @var InformationFb[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\InformationFb", mappedBy="footballer")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
      */
-    private $club;
+    private $footballer;
+
+    /**
+     * @var Shooter[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Shooter", mappedBy="shooter")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $shooter;
 
     /**
      * @return mixed
@@ -85,20 +106,50 @@ class Footballer
         $this->DateOfBirth = $DateOfBirth;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getClub()
+
+    public function __construct()
     {
-        return $this->club;
+        $this->footballer = new ArrayCollection();
+        $this->shooter = new ArrayCollection();
     }
 
     /**
-     * @param mixed $club
+     * @param InformationFb $informationFb
+     * @return $this
      */
-    public function setClub($club)
+    public function setFootballer(InformationFb $informationFb)
     {
-        $this->club = $club;
+        $this->footballer[] = $informationFb;
+
+        return $this;
     }
+
+    /**
+     * @return InformationFb[]|ArrayCollection
+     */
+    public function getFootballer()
+    {
+        return $this->footballer;
+    }
+
+    /**
+     * @param Shooter $shooter
+     * @return $this
+     */
+    public function setShooter(Shooter $shooter)
+    {
+        $this->shooter[] = $shooter;
+
+        return $this;
+    }
+
+    /**
+     * @return Shooter[]|ArrayCollection
+     */
+    public function getShooter()
+    {
+        return $this->shooter;
+    }
+
 
 }

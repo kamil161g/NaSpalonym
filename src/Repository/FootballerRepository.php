@@ -20,4 +20,45 @@ class FootballerRepository extends ServiceEntityRepository
         $em->persist($footballer);
         $em->flush();
     }
+
+    public function searchFootballer($name, $surname)
+    {
+
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.name LIKE :name')
+            ->andWhere('p.surname LIKE :surname')
+            ->setParameter('name', '%'.$name.'%')
+            ->setParameter('surname', '%'.$surname.'%');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    public function lastAdd()
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults('5');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    public function findUser($id)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.id = :id')
+            ->setParameter('id',$id);
+
+        return $qb->getQuery()->getOneOrNullResult();
+
+    }
+
+    public function findFbForScore($id)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.id = :id')
+            ->setParameter('id',$id);
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
 }

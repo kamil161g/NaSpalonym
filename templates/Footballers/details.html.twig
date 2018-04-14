@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+
+    {% block body %}
+
+
+
+        {% if result is null %}
+
+            <h2>Piłkarz nie ma jeszcze szczegółów.</h2>
+            <a href="{{ path('app_how_ad_fb') }}"><h2>Dodaj Szczegóły</h2></a>
+
+        {% else %}
+            <nav class="navbar navbar-inverse">
+
+                <h4>Imie: {{ result.footballer.name }}</h4>
+                <h4>Nazwisko: {{ result.footballer.surname }}</h4>
+                <h4>Wiek: {{ age }} lat</h4>
+                <h4>Klub: {{ result.club.name }}</h4>
+                <h4>Ilośc meczy: {{ result.matchs }}</h4>
+                <h4>Ilośc goli: {{ result.goals }}</h4>
+                <h4>Pozycja: {{ result.position }}</h4>
+
+            </nav>
+        {% endif %}
+    {% endblock %}

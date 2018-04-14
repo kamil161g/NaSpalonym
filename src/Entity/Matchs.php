@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,22 +32,22 @@ class Matchs
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $start_match;
+    private $startMatch;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $end_match;
+    private $endMatch;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $goal_host_team;
+    private $goalHost;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $goal_guest_team;
+    private $goalGuest;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -57,6 +58,20 @@ class Matchs
      * @ORM\Column(type="text", nullable=true)
      */
     private $league;
+
+    /**
+     * @var Shooter[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Shooter", mappedBy="match")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $match;
+
+
+    public function __construct()
+    {
+        $this->match = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -95,15 +110,15 @@ class Matchs
      */
     public function getStartMatch()
     {
-        return $this->start_match;
+        return $this->startMatch;
     }
 
     /**
-     * @param mixed $start_match
+     * @param mixed $startMatch
      */
-    public function setStartMatch($start_match)
+    public function setStartMatch($startMatch)
     {
-        $this->start_match = $start_match;
+        $this->startMatch = $startMatch;
     }
 
     /**
@@ -111,47 +126,47 @@ class Matchs
      */
     public function getEndMatch()
     {
-        return $this->end_match;
+        return $this->endMatch;
     }
 
     /**
-     * @param mixed $end_match
+     * @param mixed $endMatch
      */
-    public function setEndMatch($end_match)
+    public function setEndMatch($endMatch)
     {
-        $this->end_match = $end_match;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getGoalHostTeam()
-    {
-        return $this->goal_host_team;
-    }
-
-    /**
-     * @param mixed $goal_host_team
-     */
-    public function setGoalHostTeam($goal_host_team)
-    {
-        $this->goal_host_team = $goal_host_team;
+        $this->endMatch = $endMatch;
     }
 
     /**
      * @return mixed
      */
-    public function getGoalGuestTeam()
+    public function getGoalHost()
     {
-        return $this->goal_guest_team;
+        return $this->goalHost;
     }
 
     /**
-     * @param mixed $goal_guest_team
+     * @param mixed $goalHost
      */
-    public function setGoalGuestTeam($goal_guest_team)
+    public function setGoalHost($goalHost)
     {
-        $this->goal_guest_team = $goal_guest_team;
+        $this->goalHost = $goalHost;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGoalGuest()
+    {
+        return $this->goalGuest;
+    }
+
+    /**
+     * @param mixed $goalGuest
+     */
+    public function setGoalGuest($goalGuest)
+    {
+        $this->goalGuest = $goalGuest;
     }
 
     /**
@@ -185,5 +200,25 @@ class Matchs
     {
         $this->league = $league;
     }
+
+    /**
+     * @return Shooter[]|ArrayCollection
+     */
+    public function getMatch()
+    {
+        return $this->match;
+    }
+
+    /**
+     * @param Shooter[]|ArrayCollection $match
+     */
+    public function setMatch($match)
+    {
+        $this->match = $match;
+    }
+
+
+
+
 
 }

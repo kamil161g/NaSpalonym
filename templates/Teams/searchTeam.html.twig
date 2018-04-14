@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <div class="container">
+
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+
+        </br>
+        {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
+
+        {{ form_end(form) }}
+    </div>
+
+
+
+    {% if result is defined %}
+        {% for result in result %}
+
+            <h3>
+                <a href="{{ path('app_details_team',{'id': result.id}) }}" style="text-decoration: none">{{ result.name }}</a>
+            </h3>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}

@@ -13,28 +13,79 @@ class MatchsRepository extends ServiceEntityRepository
         parent::__construct($registry, Matchs::class);
     }
 
-    public function addMatch($match)
+    public function addMatch($match,$end)
     {
         $entityManager = $this->_em;
+        $match->setEndMatch($end);
         $entityManager->persist($match);
         $entityManager->flush();
 
     }
 
+    public function changeScore($id)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.id = :id')
+            ->setParameter('id',$id);
 
+        return $qb->getQuery()->getOneOrNullResult();
+    }
 
-    public function findAllGreaterThanStart($start_match, $division): array
+    public function addGoals($match,$gh, $gg)
+    {
+        $entityManager = $this->_em;
+        $match->setGoalHost($gh);
+        $match->setGoalGuest($gg);
+        $entityManager->persist($match);
+        $entityManager->flush();
+
+    }
+
+    public function findAllGreaterThanStart($startMatch, $division): array
     {
 
         $qb = $this->createQueryBuilder('p')
-            ->andWhere('p.start_match > :start_match')
+            ->andWhere('p.startMatch > :startMatch')
             ->andWhere('p.division = :division')
-            ->setParameter('start_match', $start_match)
+            ->setParameter('startMatch', $startMatch)
             ->setParameter('division', $division)
-            ->orderBy('p.start_match', 'ASC');
+            ->orderBy('p.startMatch', 'ASC');
 
 
         return $qb->getQuery()->getArrayResult();
 
     }
+
+    public function findLiveMatchs($startMatch, $endMatch)
+    {
+
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.startMatch <= :startMatch')
+            ->andWhere('p.endMatch >= :endMatch')
+            ->setParameter('startMatch', $startMatch)
+            ->setParameter('endMatch', $endMatch);
+
+        return $qb->getQuery()->getArrayResult();
+
+    }
+
+    public function showDetails($id)
+    {
+            $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.id = :id')
+            ->setParameter('id', $id);
+
+        return $qb->getQuery()->getArrayResult();
+
+    }
+
+    public function searchTeams($id)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.id = :id')
+            ->setParameter('id',$id);
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
 }
