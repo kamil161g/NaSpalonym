@@ -37,7 +37,6 @@ class StatsController extends Controller
                     }
 
 
-
                 return $this->render("Stats/index.html.twig",[
                     'form' => $form->createView(),
                     'result' => $result,

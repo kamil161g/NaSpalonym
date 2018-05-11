@@ -2,51 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afb6af4b-5eda-4175-8502-d269d6da1380" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/StatsController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/addFootballerController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/detailsFootballerController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/detailsMatchController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/detailsTeamController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/liveController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/searchFootballerController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/searchTeamController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/StatsType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/addDetailsFbType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/beforeChangeType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/howAddType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/searchFootballerType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/searchTeamType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Footballers/addFootballer.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Footballers/howAdd.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Footballers/searchFootballer.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Live/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Matchs/beforeChangeScore.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Matchs/changeScore.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Matchs/details.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Stats/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Teams/details.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Teams/searchTeam.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controller/.gitignore" afterPath="$PROJECT_DIR$/templates/Footballers/details.html.twig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Form/addDetailsFootballerType.php" afterPath="$PROJECT_DIR$/src/Form/addFootballerType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/na_spalonym.iml" afterPath="$PROJECT_DIR$/.idea/na_spalonym.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/symfony2.xml" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/packages/framework.yaml" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.yaml" afterPath="$PROJECT_DIR$/config/routes.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/services.yaml" afterPath="$PROJECT_DIR$/config/services.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/addDetailsFootballerController.php" afterPath="$PROJECT_DIR$/src/Controller/addDetailsFootballerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/addMatchController.php" afterPath="$PROJECT_DIR$/src/Controller/addMatchController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Footballer.php" afterPath="$PROJECT_DIR$/src/Entity/Footballer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Matchs.php" afterPath="$PROJECT_DIR$/src/Entity/Matchs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/addMatchType.php" afterPath="$PROJECT_DIR$/src/Form/addMatchType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/FootballerRepository.php" afterPath="$PROJECT_DIR$/src/Repository/FootballerRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/MatchsRepository.php" afterPath="$PROJECT_DIR$/src/Repository/MatchsRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Footballers/addDetails.html.twig" afterPath="$PROJECT_DIR$/templates/Footballers/addDetails.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Matchs/addMatch.html.twig" afterPath="$PROJECT_DIR$/templates/Matchs/addMatch.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Matchs/show.html.twig" afterPath="$PROJECT_DIR$/templates/Matchs/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/StatsController.php" afterPath="$PROJECT_DIR$/src/Controller/StatsController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,12 +20,10 @@
       <file leaf-file-name="StatsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/StatsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="720">
+              <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
               <folding>
                 <element signature="e#36#65#0#PHP" expanded="true" />
-                <element signature="e#959#982#0#PHP" expanded="true" />
-                <element signature="e#1218#1241#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,7 +32,7 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/Stats/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="560">
               <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="61" />
               <folding />
             </state>
@@ -87,7 +42,7 @@
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="540">
               <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
               <folding />
             </state>
@@ -97,7 +52,7 @@
       <file leaf-file-name="ShooterRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Repository/ShooterRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="540">
               <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
               <folding />
             </state>
@@ -107,7 +62,7 @@
       <file leaf-file-name="StatsType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Form/StatsType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="340">
               <caret line="26" column="41" lean-forward="false" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
               <folding>
                 <element signature="e#109#158#0#PHP" expanded="true" />
@@ -285,7 +240,7 @@
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="75" />
     <option name="y" value="24" />
     <option name="width" value="1291" />
@@ -307,6 +262,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -324,7 +280,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -440,18 +395,19 @@
       <workItem from="1519662565056" duration="604000" />
       <workItem from="1522577820634" duration="156000" />
       <workItem from="1523211788896" duration="8000" />
-      <workItem from="1523715833649" duration="46000" />
+      <workItem from="1523715833649" duration="484000" />
+      <workItem from="1526033773923" duration="107000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242140000" />
+    <option name="totallyTimeSpent" value="242685000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="24" width="1839" height="1084" extended-state="6" />
+    <frame x="81" y="-4" width="1839" height="1084" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2526492" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25543782" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -812,7 +768,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/ShooterRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="540">
           <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
           <folding />
         </state>
@@ -820,7 +776,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="540">
           <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
           <folding />
         </state>
@@ -828,7 +784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/StatsType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="340">
           <caret line="26" column="41" lean-forward="false" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
           <folding>
             <element signature="e#109#158#0#PHP" expanded="true" />
@@ -838,19 +794,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/StatsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="720">
+          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
           <folding>
             <element signature="e#36#65#0#PHP" expanded="true" />
-            <element signature="e#959#982#0#PHP" expanded="true" />
-            <element signature="e#1218#1241#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/Stats/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="560">
           <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="61" />
           <folding />
         </state>
