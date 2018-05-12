@@ -23,26 +23,37 @@ class StatsController extends Controller
 
                     $season = $form->get('season')->getViewData();
 
-
                     $result = $this->getDoctrine()
                         ->getRepository(Shooter::class)
                         ->showStats($season);
 
                 foreach ($result as $item) {
 
-                    $info[] = $this->getDoctrine()
+//                    $info[] = $this->getDoctrine()
+//                        ->getRepository(InformationFb::class)
+//                        ->findBy(['id' => $item['id']]);
+
+//                    $info[] = $this->getDoctrine()
+//                        ->getRepository(InformationFb::class)
+//                        ->searchFootballer(8);
+
+                    $info = $this->getDoctrine()
                         ->getRepository(InformationFb::class)
-                        ->findBy(['id' => $item['id']]);
+                        ->searchFootballer($item['season']);
+
+
+
 
                     }
-
 
                 return $this->render("Stats/index.html.twig",[
                     'form' => $form->createView(),
                     'result' => $result,
                     'info' => $info,
-                    'season' => $season
+                    'season' => $season,
                 ]);
+
+
             }
 
         return $this->render("Stats/index.html.twig",[

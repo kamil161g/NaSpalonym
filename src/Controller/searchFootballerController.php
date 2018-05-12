@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Footballer;
+use App\Entity\InformationFb;
 use App\Form\searchFootballerType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,12 +37,22 @@ class searchFootballerController extends Controller
                     ->getRepository(Footballer::class)
                     ->searchFootballer($name, $surname);
 
+                foreach ($result as $item) {
+
+                    $footballer[] = $this->getDoctrine()
+                        ->getRepository(InformationFb::class)
+                        ->searchFootballerForSearching([$item['id']]);
+
+                }
+
+//                var_dump($footballer);
+
 
 
                 return $this->render("Footballers/searchFootballer.html.twig",[
                     'form' => $form->createView(),
-                    'result' => $result,
-                    'lastAdd' => $lastAdd
+                    'footballer' => $footballer,
+                    'lastAdd' => $lastAdd,
                 ]);
 
             }

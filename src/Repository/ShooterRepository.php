@@ -29,9 +29,11 @@ class ShooterRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('p')
             ->innerJoin('p.shooter','a')
             ->innerJoin('a.footballer','b')
+            ->innerJoin('b.club', 'c')
             ->addSelect('a')
             ->addSelect('b')
-            ->andWhere('p.season =:season')
+            ->addSelect('c')
+            ->andWhere('p.season = :season')
             ->setParameter('season',$season);
 
         return $qb->getQuery()->getArrayResult();

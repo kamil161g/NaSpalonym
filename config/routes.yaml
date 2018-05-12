@@ -63,3 +63,9 @@ app_change_score:
 app_show_stats:
     path: /stats
     controller: App\Controller\StatsController:showStatsAction
+
+#----------------------------------------------------------------------------------------REGISTRATION:
+
+app_new_user:
+    path: /registration
+    controller: App\Controller\RegistrationController:addNewUserAction

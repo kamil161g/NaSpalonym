@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Entity\Footballer;
 use App\Entity\InformationFb;
 use App\Entity\Team;
+use App\Entity\Users;
 use App\Form\addDetailsFbType;
 use App\Form\howAddType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -20,7 +21,7 @@ class addDetailsFootballerController extends Controller
 
     public function howAddAction(Request $request)
     {
-        $form = $this->createForm(howAddType::class);
+        $form = $this->createForm(howAddType::class, Users::class);
 
         $form->handleRequest($request);
 

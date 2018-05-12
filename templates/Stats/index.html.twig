@@ -21,12 +21,15 @@
 
 
             </tr>
-             {% for result in result %}
+             {% for info in info %}
+
 
                  <tr>
-                     <td>{{ result.shooter.name }}</td>	<td>{{ result.shooter.surname }}</td>
-                     <td>KLUB</td>	<td>{{ result.shooter.footballer.0.matchs }}</td>
-                     <td>{{ result.shooter.footballer.0.goals }}</td>
+                     <td>{{ info.footballer.name }}</td>
+                     <td>{{ info.footballer.surname }}</td>
+                     <td>{{ info.club.name }}</td>
+                     <td>{{ info.matchs }}</td>
+                     <td>{{ info.goals }}</td>
 
                  </tr>
 

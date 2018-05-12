@@ -28,12 +28,21 @@
 
         {% endfor %}
 <hr>
-    {% if result is defined %}
-        {% for result in result %}
+    {% if footballer is defined %}
+        {% for footballer in footballer %}
 
             <h3>
-                <a href="{{ path('app_details_fb',{'id': result.id}) }}" style="text-decoration: none">{{ result.name~' '~result.surname }}</a>
+                <a href="{{ path('app_details_fb',{'id': footballer.0.footballer.id}) }}" style="text-decoration: none">
+                    {{ footballer.0.footballer.name~' '~footballer.0.footballer.surname }}
+                </a>
             </h3>
+
+            <h5>
+                <a href="{{ path('app_details_team',{'id': footballer.0.club.id}) }}" style="color: black">
+                    {{ footballer.0.club.name }}
+                </a>
+            </h5>
+
         {% endfor %}
     {% endif %}
 
