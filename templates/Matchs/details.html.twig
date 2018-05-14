@@ -1,9 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <script>
 
+
+        setTimeout(countDowna, 1);
+                    function countDowna() {
+
+                        var oneDate = new Date("{{ timematch }}");
+
+                        var oneDateMiliseconds = oneDate.getTime();
+
+
+                        var currentMiliseconds = Date.now();
+
+                        // return time difference in milliseconds
+                        var timePassedInMilliseconds = (currentMiliseconds-oneDateMiliseconds)/1000/60;
+
+                        var timerek = parseInt(timePassedInMilliseconds, 10);
+                        if(timerek > 90){
+                            document.getElementById("zegar").innerHTML = "Koniec";
+
+                        }else {
+
+                            document.getElementById("zegar").innerHTML = timerek + " minuta";
+                            setTimeout(countDowna, 1000);
+                        }
+                    }
+
+    </script>
+
+<body>
+   <h2>
+       <div class="panel-default" id="zegar" style="text-align: center;">Minuta : minutes</div>
+   </h2>
 
     {% for matchs in matchs %}
+
         <a href="{{ path('app_change_score',{'id': matchs.id}) }}" class="btn btn-primary" >Zmień wynik</a></br></br>
 
             <div class="panel-heading" style="background-color: #868686; float: left; width: 49%;">
@@ -27,5 +60,5 @@
 
     {% endfor %}
 
-
+</body>
 {% endblock %}

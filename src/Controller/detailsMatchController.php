@@ -24,10 +24,18 @@ class detailsMatchController extends Controller
             ->getRepository(Matchs::class)
             ->showDetails($id);
 
+        $searchTime = $this->getDoctrine()
+            ->getRepository(Matchs::class)
+            ->findOneBy(['id' => $id]);
+
+
+        $timematch = $searchTime->getStartMatch()->format('Y-m-d H:i:s');
+
 
         return $this->render("Matchs/details.html.twig", [
             'matchs' => $details,
             'now' => $now,
+            'timematch' => $timematch
         ]);
     }
 

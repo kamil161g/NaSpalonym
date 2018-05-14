@@ -2,15 +2,16 @@
 
 
 {% block body %}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <div class="panel-body" >
-        {#{% for message in app.flashes("success") %}#}
-            {#<div class="alert alert-success" role="alert">{{ message }}</div>#}
-        {#{% endfor %}#}
+        {% for message in app.flashes("success") %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
 
-        {#{% for message in app.flashes("error") %}#}
-            {#<div class="alert alert-danger" role="alert">{{ message }}</div>#}
-        {#{% endfor %}#}
+        {% for message in app.flashes("error") %}
+            <div class="alert alert-danger" role="alert">{{ message }}</div>
+        {% endfor %}
 
         {#<div class="panel-group"> <h2>ZAŁÓŻ KONTO JUŻ TERAZ :></h2></div>#}
         {{ form_start(form) }}
@@ -28,6 +29,7 @@
         {{ form_row(form.termsAccepted) }}
         </label>
     </div>
+        <div class="g-recaptcha" data-sitekey="6Le_1FgUAAAAAFHXTrGBKkDRfoJ_4TQa5b9fwTgX"></div>
         {{ form_row(form.submit,{'attr': {'class': 'btn btn-success'}}) }}
 
         {{ form_end(form) }}
