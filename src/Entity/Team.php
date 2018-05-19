@@ -40,9 +40,18 @@ class Team
      */
     private $footballer;
 
+    /**
+     * @var InformationTeam[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\InformationTeam", mappedBy="club_id")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $description;
+
     public function __construct()
     {
         $this->footballer = new ArrayCollection();
+        $this->description = new ArrayCollection();
     }
 
     /**
@@ -127,6 +136,24 @@ class Team
     function __toString() {
         return $this->getLeague();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+
 
 
 

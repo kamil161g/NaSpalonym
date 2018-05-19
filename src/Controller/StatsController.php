@@ -22,26 +22,21 @@ class StatsController extends Controller
             if($form->isSubmitted()){
 
                     $season = $form->get('season')->getViewData();
+                    $division = $form->get('division')->getViewData();
+                    $league = $form->get('league')->getViewData();
+
+
 
                     $result = $this->getDoctrine()
                         ->getRepository(Shooter::class)
                         ->showStats($season);
 
+
                 foreach ($result as $item) {
-
-//                    $info[] = $this->getDoctrine()
-//                        ->getRepository(InformationFb::class)
-//                        ->findBy(['id' => $item['id']]);
-
-//                    $info[] = $this->getDoctrine()
-//                        ->getRepository(InformationFb::class)
-//                        ->searchFootballer(8);
 
                     $info = $this->getDoctrine()
                         ->getRepository(InformationFb::class)
-                        ->searchFootballer($item['season']);
-
-
+                        ->searchFootballer($item['season'], $division, $league);
 
 
                     }

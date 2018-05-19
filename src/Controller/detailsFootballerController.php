@@ -11,38 +11,58 @@ namespace App\Controller;
 
 use App\Entity\Footballer;
 use App\Entity\InformationFb;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use App\Form\ChooseSeasonFbType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class detailsFootballerController extends Controller
 {
 
-    public function detailsFootballerAction($id)
+    public function detailsFootballerAction($footballer, Request $request, InformationFb $informationFb)
     {
+        $form = $this->createForm(ChooseSeasonFbType::class, $informationFb,  ['id' => $footballer]);
+            $form->handleRequest($request);
 
-        $result = $this->getDoctrine()
-            ->getRepository(InformationFb::class)
-            ->detailsFootballer($id);
+                if($form->isSubmitted()){
 
-
-        $result2 = $this->getDoctrine()
-            ->getRepository(Footballer::class)
-            ->findUser($id);
-
-            $birthDay = $result2->getDateOfBirth();
+                    $season = $form->get('plainSeason')->getViewData();
 
 
-            $format = date_format($birthDay, 'Y-m-d');
+                    $result = $this->getDoctrine()
+                        ->getRepository(InformationFb::class)
+                        ->detailsFootballer($footballer, $season);
 
 
-            $age = date_diff(date_create($format), date_create('today'))->y;
+
+                            $result2 = $this->getDoctrine()
+                                ->getRepository(Footballer::class)
+                                ->findUser($footballer);
+
+                                $birthDay = $result2->getDateOfBirth();
 
 
-        return $this->render("Footballers/details.html.twig",[
-            'result' => $result,
-            'age' => $age
-        ]);
+                                    $format = date_format($birthDay, 'Y-m-d');
+
+
+                                        $age = date_diff(date_create($format), date_create('today'))->y;
+
+                    return $this->render("Footballers/details.html.twig",[
+                        'result' => $result,
+                        'age' => $age,
+                        'form' => $form->createView()
+                    ]);
+
+                }
+
+
+            return $this->render("Footballers/details.html.twig",[
+                'form' => $form->createView()
+            ]);
+
+
     }
+
+
+
 
 }

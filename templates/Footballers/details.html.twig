@@ -5,12 +5,16 @@
 
 
 
-        {% if result is null %}
+            {{ form_start(form) }}
+                {{ form_errors(form) }}
+                {{ form_row(form.plainSeason, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+                {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
+            {{ form_end(form) }}
+        </br>
 
-            <h2>Piłkarz nie ma jeszcze szczegółów.</h2>
-            <a href="{{ path('app_how_ad_fb') }}"><h2>Dodaj Szczegóły</h2></a>
 
-        {% else %}
+
+        {% if result is  defined %}
             <nav class="navbar navbar-inverse">
 
                 <h4>Imie: {{ result.footballer.name }}</h4>
@@ -19,8 +23,10 @@
                 <h4>Klub: {{ result.club.name }}</h4>
                 <h4>Ilośc meczy: {{ result.matchs }}</h4>
                 <h4>Ilośc goli: {{ result.goals }}</h4>
-                <h4>Pozycja: {{ result.position }}</h4>
+                {#<h4>Pozycja: {{ result.position }}</h4>#}
 
             </nav>
         {% endif %}
+
+
     {% endblock %}

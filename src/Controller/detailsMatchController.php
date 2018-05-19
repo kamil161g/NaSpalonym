@@ -5,31 +5,35 @@ namespace App\Controller;
 
 
 use App\Entity\Footballer;
+use App\Entity\InformationTeam;
 use App\Entity\Matchs;
 use App\Entity\Shooter;
 use App\Entity\Team;
 use App\Form\changeScoreType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class detailsMatchController extends Controller
 {
 
-    public function showDetailsAction($id)
+    public function showDetailsAction($id, Matchs $matchs)
     {
 
         $now = new \DateTime('now');
 
-        $details = $this->getDoctrine()
-            ->getRepository(Matchs::class)
-            ->showDetails($id);
+            $details = $this->getDoctrine()
+                ->getRepository(Matchs::class)
+                ->showDetails($id);
 
-        $searchTime = $this->getDoctrine()
-            ->getRepository(Matchs::class)
-            ->findOneBy(['id' => $id]);
+                $searchTime = $this->getDoctrine()
+                    ->getRepository(Matchs::class)
+                    ->findOneBy(['id' => $id]);
 
 
         $timematch = $searchTime->getStartMatch()->format('Y-m-d H:i:s');
+        $endmatch = $searchTime->getEndMatch()->format('Y-m-d H:i:s');
 
 
         return $this->render("Matchs/details.html.twig", [
@@ -38,6 +42,8 @@ class detailsMatchController extends Controller
             'timematch' => $timematch
         ]);
     }
+    //     * @ParamConverter("team", class="App:Team", options={"id" = "team_id"})
+
 
     public function ChangeScoreAction(Matchs $matchs, Request $request, $id)
     {

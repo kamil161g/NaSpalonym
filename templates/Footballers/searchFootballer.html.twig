@@ -22,7 +22,7 @@
         <h4>Ostatnio dodani:(dla admina)</h4>
          {% for last in lastAdd %}
 
-             <h4><li><a href="{{ path('app_details_fb',{'id': last.id}) }}">
+             <h4><li><a href="{{ path('app_details_fb',{'footballer': last.id}) }}">
                  {{ last.name }} {{ last.surname }} Id:{{ last.id }}
              </a> </li></h4>
 
@@ -32,7 +32,7 @@
         {% for footballer in footballer %}
 
             <h3>
-                <a href="{{ path('app_details_fb',{'id': footballer.0.footballer.id}) }}" style="text-decoration: none">
+                <a href="{{ path('app_details_fb',{'footballer': footballer.0.footballer.id}) }}" style="text-decoration: none">
                     {{ footballer.0.footballer.name~' '~footballer.0.footballer.surname }}
                 </a>
             </h3>

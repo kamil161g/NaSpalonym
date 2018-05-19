@@ -21,7 +21,7 @@ class addDetailsFootballerController extends Controller
 
     public function howAddAction(Request $request)
     {
-        $form = $this->createForm(howAddType::class, Users::class);
+        $form = $this->createForm(howAddType::class);
 
         $form->handleRequest($request);
 

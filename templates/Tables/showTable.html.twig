@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+        {{ form_row(form.division, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.league, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.season, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
+    {{ form_end(form) }}
+
+
+
+    {% if club is defined %}
+    {% if club is not empty %}
+        <h1>Tabela na sezon: {{ club.0.season }} </h1>
+        <table class="table table-bordered">
+        <tr style="color: #F5871F; border: 1px black solid">
+            <td><h4>Nazwa</h4></td>	<td><h4>Mecze</h4></td>
+            <td><h4>Wygrane</h4></td>	<td><h4>Przegrane</h4></td>
+            <td><h4>Remis</h4></td>	<td><h4>Bramki</h4></td>
+            <td><h4>Punkty</h4></td>
+
+
+        </tr>
+            {% for club in club %}
+
+
+                <tr>
+                    <td>{{ club.club_id.name }}</td>
+                    <td>{{ club.matchs }}</td>
+                    <td>{{ club.wins }}</td>
+                    <td>{{ club.lost }}</td>
+                    <td>{{ club.draw }}</td>
+                    <td>{{ club.goalsScored }} : {{ club.goalsLost }}</td>
+                    <td>{{ club.points }}</td>
+
+                </tr>
+
+            {% endfor %}
+
+        {% else %}
+
+            <h1>Brak rezultatu</h1>
+
+        {% endif %}
+        {% endif %}
+
+
+
+{% endblock %}

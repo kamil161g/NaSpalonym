@@ -45,9 +45,6 @@ class searchFootballerController extends Controller
 
                 }
 
-//                var_dump($footballer);
-
-
 
                 return $this->render("Footballers/searchFootballer.html.twig",[
                     'form' => $form->createView(),

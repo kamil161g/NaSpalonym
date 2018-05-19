@@ -60,6 +60,27 @@ class InformationFb
     private $footballer;
 
 
+    private $plainSeason;
+
+    /**
+     * @return mixed
+     */
+    public function getPlainSeason()
+    {
+        return $this->plainSeason;
+    }
+
+    /**
+     * @param mixed $season
+     */
+    public function setPlainSeason($season)
+    {
+        $this->plainSeason = $season;
+    }
+
+    
+
+
     /**
      * @return mixed
      */
@@ -162,6 +183,9 @@ class InformationFb
 
         return $this;
     }
+
+
+
 
 
 }

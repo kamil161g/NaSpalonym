@@ -13,7 +13,7 @@ app_how_ad_fb:
     controller: App\Controller\addDetailsFootballerController:howAddAction
 
 app_details_fb:
-    path: /footballer/{id}
+    path: /footballer/{footballer}
     controller: App\Controller\detailsFootballerController::detailsFootballerAction
 
 app_search_fb:
@@ -69,3 +69,12 @@ app_show_stats:
 app_new_user:
     path: /registration
     controller: App\Controller\RegistrationController:addNewUserAction
+
+
+#----------------------------------------------------------------------------------------TABLE:
+
+app_show_table:
+    path: /table
+    controller: App\Controller\ShowTableController:showTableAction
+
+

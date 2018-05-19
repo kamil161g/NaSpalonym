@@ -4,6 +4,7 @@
     <script>
 
 
+
         setTimeout(countDowna, 1);
                     function countDowna() {
 
@@ -14,11 +15,13 @@
 
                         var currentMiliseconds = Date.now();
 
-                        // return time difference in milliseconds
                         var timePassedInMilliseconds = (currentMiliseconds-oneDateMiliseconds)/1000/60;
 
                         var timerek = parseInt(timePassedInMilliseconds, 10);
+
+
                         if(timerek > 90){
+
                             document.getElementById("zegar").innerHTML = "Koniec";
 
                         }else {

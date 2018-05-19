@@ -29,7 +29,8 @@ class showMatchsController extends Controller
                         ->findAllGreaterThanStart($now, $form->get('division')->getData());
 
 
-                    return $this->render("Matchs/show.html.twig", ['matchs' => $matchs,
+                    return $this->render("Matchs/show.html.twig", [
+                        'matchs' => $matchs,
                         'form' => $form->createView(),
                     ]);
                 }
