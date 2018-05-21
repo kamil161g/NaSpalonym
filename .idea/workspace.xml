@@ -2,28 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afb6af4b-5eda-4175-8502-d269d6da1380" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/ShowTableController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/ChooseSeasonFbType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/ShowTableType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Tables/showTable.html.twig" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Form/beforeChangeType.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/EditDetailsFbController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/Footballers/edit.html.twig" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/addDetailsFootballerController.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.yaml" afterPath="$PROJECT_DIR$/config/routes.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/StatsController.php" afterPath="$PROJECT_DIR$/src/Controller/StatsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/addDetailsFootballerController.php" afterPath="$PROJECT_DIR$/src/Controller/addDetailsFootballerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/detailsFootballerController.php" afterPath="$PROJECT_DIR$/src/Controller/detailsFootballerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/detailsMatchController.php" afterPath="$PROJECT_DIR$/src/Controller/detailsMatchController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/addFootballerController.php" afterPath="$PROJECT_DIR$/src/Controller/addFootballerController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/searchFootballerController.php" afterPath="$PROJECT_DIR$/src/Controller/searchFootballerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/showMatchsController.php" afterPath="$PROJECT_DIR$/src/Controller/showMatchsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/InformationFb.php" afterPath="$PROJECT_DIR$/src/Entity/InformationFb.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Team.php" afterPath="$PROJECT_DIR$/src/Entity/Team.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/StatsType.php" afterPath="$PROJECT_DIR$/src/Form/StatsType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/addDetailsFbType.php" afterPath="$PROJECT_DIR$/src/Form/addDetailsFbType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/FootballerRepository.php" afterPath="$PROJECT_DIR$/src/Repository/FootballerRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/InformationFbRepository.php" afterPath="$PROJECT_DIR$/src/Repository/InformationFbRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Footballers/details.html.twig" afterPath="$PROJECT_DIR$/templates/Footballers/details.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Footballers/addDetails.html.twig" afterPath="$PROJECT_DIR$/templates/Footballers/addDetails.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Footballers/searchFootballer.html.twig" afterPath="$PROJECT_DIR$/templates/Footballers/searchFootballer.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Matchs/details.html.twig" afterPath="$PROJECT_DIR$/templates/Matchs/details.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Stats/index.html.twig" afterPath="$PROJECT_DIR$/templates/Stats/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,18 +31,80 @@
       <file leaf-file-name="addFootballerController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/addFootballerController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="17" column="44" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+            <state relative-caret-position="380">
+              <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addFootballerType.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Form/addFootballerType.php">
+      <file leaf-file-name="searchFootballer.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/Footballers/searchFootballer.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-177">
-              <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+            <state relative-caret-position="263">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="showTable.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/Tables/showTable.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="563">
+              <caret line="42" column="24" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detailsFootballerController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/detailsFootballerController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="22" column="82" lean-forward="false" selection-start-line="22" selection-start-column="82" selection-end-line="22" selection-end-column="82" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="searchFootballerController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/searchFootballerController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="49" column="51" lean-forward="false" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/Footballers/edit.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InformationFbRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Repository/InformationFbRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="920">
+              <caret line="48" column="46" lean-forward="false" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -61,7 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>foot</find>
       <find>surname</find>
       <find>infor</find>
       <find>name</find>
@@ -91,6 +143,7 @@
       <find>sea</find>
       <find>id</find>
       <find>footbal</find>
+      <find>null</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,10 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Form/addDetailsFbType.php" />
-        <option value="$PROJECT_DIR$/src/Form/addGoalType.php" />
-        <option value="$PROJECT_DIR$/src/Form/addMatchType.php" />
-        <option value="$PROJECT_DIR$/templates/Footballers/changeScore.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Footballer.php" />
         <option value="$PROJECT_DIR$/src/Entity/Matchs.php" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
@@ -116,10 +165,8 @@
         <option value="$PROJECT_DIR$/templates/Matchs/beforeChangeScore.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Shooter.php" />
         <option value="$PROJECT_DIR$/src/Controller/statisticsCOntroller.php" />
-        <option value="$PROJECT_DIR$/src/Repository/FootballerRepository.php" />
         <option value="$PROJECT_DIR$/src/Controller/registerController.php" />
         <option value="$PROJECT_DIR$/src/Controller/RegisterController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/addFootballerController.php" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/src/Repository/UsersRepository.php" />
         <option value="$PROJECT_DIR$/src/Form/RegistrationType.php" />
@@ -141,15 +188,21 @@
         <option value="$PROJECT_DIR$/templates/Tables/showTable.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/ChooseSeasonFb.php" />
         <option value="$PROJECT_DIR$/src/Controller/detailsMatchController.php" />
-        <option value="$PROJECT_DIR$/config/routes.yaml" />
-        <option value="$PROJECT_DIR$/src/Repository/InformationFbRepository.php" />
-        <option value="$PROJECT_DIR$/src/Controller/detailsFootballerController.php" />
-        <option value="$PROJECT_DIR$/src/Entity/InformationFb.php" />
-        <option value="$PROJECT_DIR$/src/Controller/addDetailsFootballerController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/searchFootballerController.php" />
-        <option value="$PROJECT_DIR$/templates/Footballers/searchFootballer.html.twig" />
         <option value="$PROJECT_DIR$/templates/Footballers/details.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/ChooseSeasonFbType.php" />
+        <option value="$PROJECT_DIR$/src/Repository/FootballerRepository.php" />
+        <option value="$PROJECT_DIR$/src/Form/addDetailsFbType.php" />
+        <option value="$PROJECT_DIR$/templates/Footballers/addDetails.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/InformationFb.php" />
+        <option value="$PROJECT_DIR$/config/routes.yaml" />
+        <option value="$PROJECT_DIR$/src/Controller/addFootballerController.php" />
+        <option value="$PROJECT_DIR$/templates/Footballers/edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/EditDetailsFbController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/addDetailsFootballerController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/detailsFootballerController.php" />
+        <option value="$PROJECT_DIR$/src/Repository/InformationFbRepository.php" />
+        <option value="$PROJECT_DIR$/templates/Footballers/searchFootballer.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/searchFootballerController.php" />
       </list>
     </option>
   </component>
@@ -305,6 +358,27 @@
               <item name="na_spalonym" type="b2602c69:ProjectViewProjectNode" />
               <item name="na_spalonym" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="na_spalonym" type="b2602c69:ProjectViewProjectNode" />
+              <item name="na_spalonym" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bundles" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="na_spalonym" type="b2602c69:ProjectViewProjectNode" />
+              <item name="na_spalonym" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bundles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="TwigBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="na_spalonym" type="b2602c69:ProjectViewProjectNode" />
+              <item name="na_spalonym" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bundles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="TwigBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Exception" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="na_spalonym" type="b2602c69:ProjectViewProjectNode" />
@@ -468,18 +542,21 @@
       <workItem from="1526546214611" duration="2713000" />
       <workItem from="1526629193537" duration="599000" />
       <workItem from="1526640630132" duration="17638000" />
-      <workItem from="1526716533115" duration="3161000" />
+      <workItem from="1526716533115" duration="6969000" />
+      <workItem from="1526740211165" duration="9120000" />
+      <workItem from="1526811074092" duration="3801000" />
+      <workItem from="1526896907188" duration="1204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="330060000" />
+    <option name="totallyTimeSpent" value="347993000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="24" width="1841" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29447854" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30451757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -525,47 +602,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Form/addFootballerType.php</url>
-          <line>39</line>
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="1" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Entity/Shooter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/routing.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="61" lean-forward="false" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Pulpit/www/timer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -709,7 +750,7 @@
         <state relative-caret-position="240">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
+            <element signature="e#30#78#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -726,25 +767,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Tables/showTable.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/InformationTeamRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/FootballerRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -801,15 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/addDetailsFbType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -835,60 +852,8 @@
         <state relative-caret-position="-140">
           <caret line="10" column="62" lean-forward="false" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
           <folding>
-            <element signature="e#30#62#0#PHP" expanded="true" />
+            <element signature="e#30#62#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/InformationFbRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Footballers/addDetails.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/InformationFb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1437">
-          <caret line="80" column="4" lean-forward="false" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/detailsFootballerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#115#141#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/addDetailsFootballerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="23" column="51" lean-forward="false" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/searchFootballerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="50" column="43" lean-forward="false" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -896,48 +861,145 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/addFootballerType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/FootballerRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/addDetailsFbType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="46" column="23" lean-forward="false" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Footballers/addDetails.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/ChooseSeasonFbType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="32" column="44" lean-forward="false" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/InformationFb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="49" column="47" lean-forward="false" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="24" />
+        <state relative-caret-position="440">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/addDetailsFootballerController.php" />
+    <entry file="file://$PROJECT_DIR$/src/Form/searchFootballerType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/addFootballerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/InformationFbRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="48" column="46" lean-forward="false" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/EditDetailsFbController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="29" />
+          <folding>
+            <element signature="e#115#141#0#PHP" expanded="true" />
+            <element signature="e#1415#1443#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/detailsFootballerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="22" column="82" lean-forward="false" selection-start-line="22" selection-start-column="82" selection-end-line="22" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Footballers/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/Footballers/searchFootballer.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="29" column="4" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/ChooseSeasonFbType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+        <state relative-caret-position="263">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="e#109#138#0#PHP" expanded="true" />
+            <element signature="e#12#26#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/addFootballerController.php">
+    <entry file="file://$PROJECT_DIR$/src/Controller/searchFootballerController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="17" column="44" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+        <state relative-caret-position="403">
+          <caret line="49" column="51" lean-forward="false" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/addFootballerType.php">
+    <entry file="file://$PROJECT_DIR$/templates/Tables/showTable.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-177">
-          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        <state relative-caret-position="563">
+          <caret line="42" column="24" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
           <folding />
         </state>
       </provider>

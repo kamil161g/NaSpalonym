@@ -28,7 +28,7 @@ class searchFootballerController extends Controller
             ->getRepository(Footballer::class)
             ->lastAdd();
 
-            if($form->isSubmitted()){
+            if($form->isSubmitted()) {
 
                 $name = addcslashes($name = $form->get('name')->getData(), "%_");
                 $surname = addcslashes($form->get('surname')->getData(), "%_");
@@ -37,21 +37,27 @@ class searchFootballerController extends Controller
                     ->getRepository(Footballer::class)
                     ->searchFootballer($name, $surname);
 
-                foreach ($result as $item) {
+                if (!empty($result)) {
 
-                    $footballer[] = $this->getDoctrine()
-                        ->getRepository(InformationFb::class)
-                        ->searchFootballerForSearching([$item['id']]);
+                    foreach ($result as $item) {
+
+                        $footballer[] = $this->getDoctrine()
+                            ->getRepository(InformationFb::class)
+                            ->searchFootballerForSearching([$item['id']]);
+
+                    }
+
+                    if (($footballer[0] != null)) {
+
+                        return $this->render("Footballers/searchFootballer.html.twig", [
+                            'form' => $form->createView(),
+                            'footballer' => $footballer,
+                            'lastAdd' => $lastAdd,
+                        ]);
+
+                    }
 
                 }
-
-
-                return $this->render("Footballers/searchFootballer.html.twig",[
-                    'form' => $form->createView(),
-                    'footballer' => $footballer,
-                    'lastAdd' => $lastAdd,
-                ]);
-
             }
 
         return $this->render("Footballers/searchFootballer.html.twig",[

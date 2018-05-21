@@ -29,6 +29,8 @@
         {% endfor %}
 <hr>
     {% if footballer is defined %}
+
+
         {% for footballer in footballer %}
 
             <h3>
@@ -44,6 +46,13 @@
             </h5>
 
         {% endfor %}
+    {% else %}
+
+        <h1>Brak rezultatu</h1>
+
+
     {% endif %}
+
+
 
 {% endblock %}

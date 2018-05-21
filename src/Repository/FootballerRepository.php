@@ -13,6 +13,15 @@ class FootballerRepository extends ServiceEntityRepository
         parent::__construct($registry, Footballer::class);
     }
 
+    public function searchId()
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy("p.id",'DESC')
+            ->setMaxResults('1');
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
 
     public function addDetailsFootballer($footballer)
     {

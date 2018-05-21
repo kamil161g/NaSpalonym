@@ -13,6 +13,15 @@ class InformationFbRepository extends ServiceEntityRepository
         parent::__construct($registry, InformationFb::class);
     }
 
+    public function addDetailsFb($informationFb, $club, $footballer)
+    {
+        $em = $this->_em;
+        $informationFb->setFootballer($footballer);
+        $informationFb->setClub($club);
+        $em->persist($informationFb);
+        $em->flush();
+    }
+
     public function detailsFootballer($id, $season)
     {
             $qb = $this->createQueryBuilder('p')
@@ -80,6 +89,29 @@ class InformationFbRepository extends ServiceEntityRepository
         $em = $this->_em;
         $em->persist($details);
         $em->flush();
+    }
+
+
+    public function searchFb($id, $season)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.footballer = :id')
+            ->andWhere('p.season = :season')
+            ->setParameter('id', $id)
+            ->setParameter('season', $season);
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
+    public function searchFbDefault($id, $season)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.footballer = :id')
+            ->andWhere('p.season = :season')
+            ->setParameter('id', $id)
+            ->setParameter('season', $season);
+
+        return $qb->getQuery()->getOneOrNullResult();
     }
 
 

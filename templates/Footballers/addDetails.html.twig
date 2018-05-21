@@ -10,9 +10,9 @@
         {#<div class="alert alert-success" role="alert">{{ message }}</div>#}
     {#{% endfor %}#}
 
-    {#{% for message in app.flashes("error") %}#}
-        {#<div class="alert alert-danger" role="alert">{{ message }}</div>#}
-    {#{% endfor %}#}
+    {% for message in app.flashes("error") %}
+        <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {% endfor %}
 </div>
 <div class="container">
 
@@ -24,7 +24,7 @@
     {{ form_row(form.goals, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
     {{ form_row(form.matchs, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
     {{ form_row(form.position, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
-    {#{{ form_row(form.club, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}#}
+    {{ form_row(form.club, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
 
 
 

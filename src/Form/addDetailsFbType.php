@@ -5,6 +5,9 @@ namespace App\Form;
 
 
 use App\Entity\InformationFb;
+use App\Entity\Team;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -41,6 +44,15 @@ class addDetailsFbType extends AbstractType
                     'Pomocnik' => 'Pomocnik',
                     'Napastnik' => 'Napastnik',
                 ),'label' => 'Pozycja:' ))
+            ->add('club', EntityType::class, array(
+                'class' => Team::class,
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->orderBy('u.name', 'ASC');
+                },
+                'choice_label' => 'name',
+                'choice_value' => 'id'
+            ))
             ->add('submit', SubmitType::class, ['label' => 'Prześlij']);
     }
 

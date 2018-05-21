@@ -8,9 +8,6 @@ app_live_show:
     controller: App\Controller\liveController::showLiveAction
 
 #----------------------------------------------------------------------------------------FOOTBALLER:
-app_how_ad_fb:
-    path: /add/fbdetails
-    controller: App\Controller\addDetailsFootballerController:howAddAction
 
 app_details_fb:
     path: /footballer/{footballer}
@@ -24,9 +21,9 @@ app_add_fb:
     path: /add/footballer/
     controller: App\Controller\addFootballerController::addFootballerAction
 
-#app_add_details_finish_fb:
-#    path: /add/footballer/{id}/}/{name}
-#    controller: App\Controller\addDetailsFootballerController::addDetailsFinishAction
+app_edit_details:
+    path: /edit/footballer/{footballer}
+    controller: App\Controller\EditDetailsFbController:editDetailsAction
 
 #----------------------------------------------------------------------------------------TEAM:
 
