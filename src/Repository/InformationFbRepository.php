@@ -50,6 +50,20 @@ class InformationFbRepository extends ServiceEntityRepository
 
     }
 
+    public function searchFootballerForSearchingDef($id, $season)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->innerJoin('p.footballer', 'c')
+            ->addSelect('c')
+            ->andWhere('p.footballer = :id')
+            ->andWhere('p.season = :season')
+            ->setParameter('id', $id)
+            ->setParameter('season', $season);
+
+        return $qb->getQuery()->getOneOrNullResult();
+
+    }
+
     public function searchFootballer($id, $division, $league)
     {
         $qb = $this->createQueryBuilder('p')
@@ -91,6 +105,22 @@ class InformationFbRepository extends ServiceEntityRepository
         $em->flush();
     }
 
+    public function addGoalForShooter($iFb)
+    {
+        $em = $this->_em;
+        $iFb->setGoals($iFb->getGoals()+1);
+        $em->persist($iFb);
+        $em->flush();
+    }
+
+    public function deleteGoalForShooter($iFb)
+    {
+        $em = $this->_em;
+        $iFb->setGoals($iFb->getGoals()-1);
+        $em->persist($iFb);
+        $em->flush();
+    }
+
 
     public function searchFb($id, $season)
     {
@@ -112,6 +142,19 @@ class InformationFbRepository extends ServiceEntityRepository
             ->setParameter('season', $season);
 
         return $qb->getQuery()->getOneOrNullResult();
+    }
+
+    public function addDefault($informationFb, $id)
+    {
+
+        $em = $this->_em;
+        $informationFb->setFootballer($id);
+        $informationFb->setGoals(0);
+        $informationFb->setMatchs(0);
+        $informationFb->setSeason('Nie podano informajci');
+        $em->persist($informationFb);
+        $em->flush();
+
     }
 
 

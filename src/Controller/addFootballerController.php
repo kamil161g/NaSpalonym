@@ -31,6 +31,10 @@ class addFootballerController extends Controller
                         ->getRepository(Footballer::class)
                         ->searchId();
 
+                    $addDefault = $this->getDoctrine()
+                        ->getRepository(InformationFb::class)
+                        ->addDefault($informationFb, $fooballer);
+
 
                 return $this->redirectToRoute('app_edit_details', ['footballer' => $id->getId()]);
             }

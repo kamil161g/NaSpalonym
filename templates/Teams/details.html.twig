@@ -8,7 +8,6 @@
             <h4>Nazwa: {{ result.name }}</h4>
             <h4>Dywizja: {{ result.division }}</h4>
             <h4>Klasa: {{ result.league }}</h4>
-            {#<h4>Klasa: {{ squad.footballer.name }}</h4>#}
 
 
 
@@ -19,25 +18,25 @@
                     <h4>Bramkarze:</h4>
                         {% for sq in squad %}
                             {% if (sq.position == 'Bramkarz') %}
-                                <li><a  style="text-decoration: none; color: white;" href="{{ path('app_details_fb',{'id': sq.footballer.id}) }}">{{ sq.footballer.name }} {{ sq.footballer.surname }}</a> </li>
+                                <li><a  style="text-decoration: none; color: white;" href="{{ path('app_details_fb',{'footballer': sq.footballer.id}) }}">{{ sq.footballer.name }} {{ sq.footballer.surname }}</a> </li>
                             {% endif %}
                         {% endfor %}
                     <h4>Obrońcy:</h4>
                         {% for sq in squad %}
                             {% if (sq.position == 'Obrońca') %}
-                                <li><a  style="text-decoration: none; color: white;" href="{{ path('app_details_fb',{'id': sq.footballer.id}) }}">{{ sq.footballer.name }} {{ sq.footballer.surname }}</a> </li>
+                                <li><a  style="text-decoration: none; color: white;" href="{{ path('app_details_fb',{'footballer': sq.footballer.id}) }}">{{ sq.footballer.name }} {{ sq.footballer.surname }}</a> </li>
                             {% endif %}
                         {% endfor %}
                     <h4>Pomocnicy:</h4>
                         {% for sq in squad %}
                             {% if (sq.position == 'Pomocnik') %}
-                                <li><a  style="text-decoration: none; color: white;" href="{{ path('app_details_fb',{'id': sq.footballer.id}) }}">{{ sq.footballer.name }} {{ sq.footballer.surname }}</a> </li>
+                                <li><a  style="text-decoration: none; color: white;" href="{{ path('app_details_fb',{'footballer': sq.footballer.id}) }}">{{ sq.footballer.name }} {{ sq.footballer.surname }}</a> </li>
                             {% endif %}
                         {% endfor %}
                     <h4>Napastnicy:</h4>
                         {% for sq in squad %}
                             {% if (sq.position == 'Napastnik') %}
-                                <li><a  style="text-decoration: none; color: white;" href="{{ path('app_details_fb',{'id': sq.footballer.id}) }}">{{ sq.footballer.name }} {{ sq.footballer.surname }}</a> </li>
+                                <li><a  style="text-decoration: none; color: white;" href="{{ path('app_details_fb',{'footballer': sq.footballer.id}) }}">{{ sq.footballer.name }} {{ sq.footballer.surname }}</a> </li>
                             {% endif %}
                         {% endfor %}
 

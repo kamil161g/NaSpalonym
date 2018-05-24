@@ -51,8 +51,12 @@ app_details_match:
     controller: App\Controller\detailsMatchController::showDetailsAction
 
 app_change_score:
-    path: /match/changescore/{id}
-    controller: App\Controller\detailsMatchController::ChangeScoreAction
+    path: /match/addgoal/{id}
+    controller: App\Controller\AddGoalMatchController::ChangeScoreAction
+
+app_change_score_delete:
+    path: /match/deletegoal/{id}
+    controller: App\Controller\DeleteGoalMatchController::deleteGoalAction
 
 
 #----------------------------------------------------------------------------------------STATS:

@@ -39,13 +39,25 @@ class searchFootballerController extends Controller
 
                 if (!empty($result)) {
 
+                    $sezon = "Nie podano informacji";
+
                     foreach ($result as $item) {
 
                         $footballer[] = $this->getDoctrine()
                             ->getRepository(InformationFb::class)
                             ->searchFootballerForSearching([$item['id']]);
 
+
                     }
+
+                    foreach ($result as $item) {
+
+                        $footballerDef[] = $this->getDoctrine()
+                            ->getRepository(InformationFb::class)
+                            ->searchFootballerForSearchingDef([$item['id']], $sezon);
+
+                    }
+
 
                     if (($footballer[0] != null)) {
 

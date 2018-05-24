@@ -10,6 +10,8 @@
                 {{ form_row(form.plainSeason, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
                 {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
             {{ form_end(form) }}
+
+        <a href="{{ path('app_edit_details', {'footballer': id}) }}" class="btn btn-default">Edytuj</a>
         </br>
 
 
@@ -20,7 +22,7 @@
                 <h4>Imie: {{ result.footballer.name }}</h4>
                 <h4>Nazwisko: {{ result.footballer.surname }}</h4>
                 <h4>Wiek: {{ age }} lat</h4>
-                <h4>Klub: {{ result.club.name }}</h4>
+                <h4>Klub: {{ result.club.name|default('Nie ustalono') }}</h4>
                 <h4>Ilośc meczy: {{ result.matchs }}</h4>
                 <h4>Ilośc goli: {{ result.goals }}</h4>
                 {#<h4>Pozycja: {{ result.position }}</h4>#}

@@ -49,14 +49,16 @@ class detailsFootballerController extends Controller
                     return $this->render("Footballers/details.html.twig",[
                         'result' => $result,
                         'age' => $age,
-                        'form' => $form->createView()
+                        'form' => $form->createView(),
+                        'id' => $footballer
                     ]);
 
                 }
 
 
             return $this->render("Footballers/details.html.twig",[
-                'form' => $form->createView()
+                'form' => $form->createView(),
+                'id' => $footballer
             ]);
 
 

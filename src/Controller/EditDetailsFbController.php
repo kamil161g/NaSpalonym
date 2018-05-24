@@ -31,6 +31,7 @@ class EditDetailsFbController extends Controller
 
             $club = $form->get('club')->getData();
             $season = $form->get('season')->getViewData();
+            $seasonDefault = 'Nie podano informajci';
 
 
 
@@ -38,6 +39,9 @@ class EditDetailsFbController extends Controller
                 ->getRepository(InformationFb::class)
                 ->searchFb($footballer, $season);
 
+            $searchFbDefault = $this->getDoctrine()
+                ->getRepository(InformationFb::class)
+                ->searchFb($footballer, $seasonDefault);
 
 
             if(!empty($searchFb)) {
@@ -47,6 +51,11 @@ class EditDetailsFbController extends Controller
 
                 $this->addFlash('error','Edytowałeś sezon: '.$season);
 
+            }
+
+            if(!empty($searchFbDefault)){
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($searchFbDefault);
             }
 
                 $this->getDoctrine()

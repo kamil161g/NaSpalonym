@@ -46,7 +46,7 @@ class FootballerRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('p')
             ->orderBy('p.id', 'DESC')
-            ->setMaxResults('5');
+            ->setMaxResults('20');
 
         return $qb->getQuery()->getArrayResult();
     }

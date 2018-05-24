@@ -24,6 +24,13 @@ class ShooterRepository extends ServiceEntityRepository
         $em->flush();
     }
 
+    public function deleteShooter($shooter)
+    {
+        $em = $this->_em;
+        $em->remove($shooter);
+        $em->flush();
+    }
+
     public function showStats($season)
     {
         $qb = $this->createQueryBuilder('p')
