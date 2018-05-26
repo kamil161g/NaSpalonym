@@ -58,6 +58,10 @@ app_change_score_delete:
     path: /match/deletegoal/{id}
     controller: App\Controller\DeleteGoalMatchController::deleteGoalAction
 
+app_add_points:
+    path: /match/addpoints/{id}
+    controller: App\Controller\AddPointsController::addPointsAction
+
 
 #----------------------------------------------------------------------------------------STATS:
 

@@ -88,4 +88,14 @@ class MatchsRepository extends ServiceEntityRepository
         return $qb->getQuery()->getOneOrNullResult();
     }
 
+    public function addStatus($match)
+    {
+
+        $em = $this->_em;
+        $match->setStatus("Examined");
+        $em->persist($match);
+        $em->flush();
+
+    }
+
 }

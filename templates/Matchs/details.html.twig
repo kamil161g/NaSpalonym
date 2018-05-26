@@ -42,12 +42,19 @@
 
         <a href="{{ path('app_change_score',{'id': matchs.id}) }}" class="btn btn-success" >Dodaj gola</a></br></br>
         <a href="{{ path('app_change_score_delete',{'id': matchs.id}) }}" class="btn btn-danger" >Odejmij gola</a></br></br>
+        {% if matchs.status != "Examined" %}
+        <a href="{{ path('app_add_points',{'id': matchs.id}) }}" class="btn btn-warning" >Zakończ</a></br></br>
+        {% endif %}
 
             <div class="panel-heading" style="background-color: #868686; float: left; width: 49%;">
                 <h3>
                     {{ matchs.hostTeam }} <div class="panel-default" style="float: right; color: #C82829">{{ matchs.goalHost }}</div>
                 </h3>
-                <h5>GOAL! 12min. Marian Kowalski</h5>
+        {% for hostGoal in hostGoal %}
+
+                <h5>GOL! {{ hostGoal.shooter.name~' '~hostGoal.shooter.surname~' '~hostGoal.minutes~' min' }}</h5>
+
+        {% endfor %}
                 <hr/>
                 <h4>Zawodnicy:</h4>
             </div>
@@ -56,6 +63,11 @@
                 <h3>
                     {{ matchs.guestTeam }} <div class="panel-default" style="float: right; color: #C82829;">{{ matchs.goalGuest }}</div>
                 </h3>
+        {% for guestGoal in guestGoal %}
+
+                <h5>GOL! {{ guestGoal.shooter.name~' '~guestGoal.shooter.surname~' '~guestGoal.minutes~' min' }}</h5>
+
+        {% endfor %}
                 <hr/>
                 <h4>Zawodnicy:</h4>
             </div>

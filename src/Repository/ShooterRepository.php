@@ -45,4 +45,17 @@ class ShooterRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getArrayResult();
     }
+
+    public function searchShooterHost($id, $match)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->innerJoin('p.shooter','a')
+            ->addSelect('p.shooter')
+            ->andWhere('p.shooter = :id')
+            ->andWhere('p.match = :match')
+            ->setParameter('id', $id)
+            ->setParameter('match', $match);
+
+        return $qb->getQuery()->getArrayResult();
+    }
 }

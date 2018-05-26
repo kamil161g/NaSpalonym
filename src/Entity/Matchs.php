@@ -17,6 +17,16 @@ class Matchs
      */
     private $id;
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+
     // add your own fields
 
     /**
@@ -66,6 +76,11 @@ class Matchs
      * @ORM\JoinColumn(name="id", referencedColumnName="id")
      */
     private $match;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $status;
 
 
     public function __construct()
@@ -217,6 +232,21 @@ class Matchs
         $this->match = $match;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 
 
 
