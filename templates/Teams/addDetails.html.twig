@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    {#<body style="margin-top: 1%; background: #122b40">#}
+    </br>
+    <div class="container" >
+        {% for message in app.flashes("success") %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+
+        {% for message in app.flashes("error") %}
+            <div class="alert alert-danger" role="alert">{{ message }}</div>
+        {% endfor %}
+    </div>
+    <div class="container">
+
+
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.season, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.goalsScored, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.goalsLost, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.wins, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.lost, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.draw, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.points, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.matchs, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+        {{ form_row(form.brochure) }}
+
+
+
+        </br>
+        {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
+
+
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
+

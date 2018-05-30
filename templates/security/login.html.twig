@@ -1,0 +1,23 @@
+{%  extends 'base.html.twig' %}
+
+
+    {% block body %}
+
+
+
+        <form action="{{ path('app_login') }}" method="post">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" name="email" value="{{ last_username }}" />
+
+            <label for="password">Hasło:</label>
+            <input type="password" class="form-control" id="password" name="_password" />
+
+            <button type="submit" class="btn btn-primary">Zaloguj się</button>
+        </form>
+        {% if error %}
+            {#<h4> <div class="container" style="color: red">Nieprawidłowe dane lub konto jest nieaktywne.</div></h4>#}
+            {#<h4> <div class="container"><a  style="text-decoration: none; color: gold" href="{{ path('send_res_pas') }}">Nie pamiętasz hasła?</a> </div></h4>#}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+    {% endblock %}

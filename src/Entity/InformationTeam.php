@@ -54,17 +54,56 @@ class InformationTeam
      */
     private $draw;
 
-
+    /**
+     * @var Footballer
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="team")
+     *
+     */
+    private $team;
 
     /**
      * @ORM\Column(type="integer")
      */
     private $points;
 
+    private $plainSeason;
+
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="description")
+     * @return mixed
      */
-    private $club_id;
+    public function getPlainSeason()
+    {
+        return $this->plainSeason;
+    }
+
+    /**
+     * @param mixed $plainSeason
+     */
+    public function setPlainSeason($plainSeason)
+    {
+        $this->plainSeason = $plainSeason;
+    }
+
+
+
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $brochure;
+
+    public function getBrochure()
+    {
+        return $this->brochure;
+    }
+
+    public function setBrochure($brochure)
+    {
+        $this->brochure = $brochure;
+
+        return $this;
+    }
 
     public function __construct()
     {
@@ -124,21 +163,6 @@ class InformationTeam
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getClubId()
-    {
-        return $this->club_id;
-    }
-
-    /**
-     * @param mixed $club_id
-     */
-    public function setClubId($club_id)
-    {
-        $this->club_id = $club_id;
-    }
 
     /**
      * @return mixed
@@ -204,6 +228,24 @@ class InformationTeam
         $this->draw = $draw;
     }
 
+    /**
+     * @return Team
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param Team $team
+     * @return $this
+     */
+    public function setTeam(Team $team)
+    {
+        $this->team = $team;
+
+        return $this;
+    }
 
 
 

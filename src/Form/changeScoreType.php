@@ -13,6 +13,7 @@ use App\Entity\InformationFb;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -52,9 +53,9 @@ class changeScoreType extends AbstractType
                 'choice_value' => 'footballer.id',
                 'placeholder' => '',
                 'label' => 'Drużyna Gości:'])
-        ->add('goalHost',NumberType::class, ['label' => 'Gole strzelone przez gospodarzy:'])
-        ->add('goalGuest',NumberType::class, ['label' => 'Gole strzelone przez gości:'])
-        ->add('minutes',NumberType::class,['label' => 'Minuta:'])
+        ->add('goalHost',IntegerType::class, ['label' => 'Gole strzelone przez gospodarzy:'])
+        ->add('goalGuest',IntegerType::class, ['label' => 'Gole strzelone przez gości:'])
+        ->add('minutes',IntegerType::class,['label' => 'Minuta:'])
         ->add('submit',SubmitType::class,['label' => 'Wyślij']);
 
     }

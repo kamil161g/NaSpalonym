@@ -23,53 +23,76 @@ class EditDetailsFbController extends Controller
 
         $informationFb = new InformationFb();
 
+
         $form = $this->createForm(addDetailsFbType::class, $informationFb);
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted()){
+            if($form->isSubmitted()){
 
-            $club = $form->get('club')->getData();
-            $season = $form->get('season')->getViewData();
-            $seasonDefault = 'Nie podano informajci';
+                    $file = $informationFb->getBrochure();
 
-
-
-            $searchFb = $this->getDoctrine()
-                ->getRepository(InformationFb::class)
-                ->searchFb($footballer, $season);
-
-            $searchFbDefault = $this->getDoctrine()
-                ->getRepository(InformationFb::class)
-                ->searchFb($footballer, $seasonDefault);
+                    $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
 
 
-            if(!empty($searchFb)) {
+                    $file->move(
+                        $this->getParameter('brochures_directory'),
+                        $fileName
+                    );
 
-                $em = $this->getDoctrine()->getManager();
-                $em->remove($searchFb);
 
-                $this->addFlash('error','Edytowałeś sezon: '.$season);
+                    $informationFb->setBrochure($fileName);
+
+                    $club = $form->get('club')->getData();
+                    $season = $form->get('season')->getViewData();
+                    $seasonDefault = 'Nie podano informajci';
+
+
+
+                    $searchFb = $this->getDoctrine()
+                        ->getRepository(InformationFb::class)
+                        ->searchFb($footballer, $season);
+
+                    $searchFbDefault = $this->getDoctrine()
+                        ->getRepository(InformationFb::class)
+                        ->searchFb($footballer, $seasonDefault);
+
+
+                        if(!empty($searchFb)) {
+
+                            $em = $this->getDoctrine()->getManager();
+                            $em->remove($searchFb);
+
+                            $this->addFlash('error','Edytowałeś sezon: '.$season);
+
+                        }
+
+                        if(!empty($searchFbDefault)){
+                            $em = $this->getDoctrine()->getManager();
+                            $em->remove($searchFbDefault);
+                        }
+
+                    $this->getDoctrine()
+                        ->getRepository(InformationFb::class)
+                       ->addDetailsFb($informationFb,$club,$footballer);
+
+                $this->addFlash('success', 'Operacja wykonana prawidłowo.');
 
             }
-
-            if(!empty($searchFbDefault)){
-                $em = $this->getDoctrine()->getManager();
-                $em->remove($searchFbDefault);
-            }
-
-                $this->getDoctrine()
-                    ->getRepository(InformationFb::class)
-                   ->addDetailsFb($informationFb,$club,$footballer);
-
-            $this->addFlash('success', 'Operacja wykonana prawidłowo.');
-
-        }
 
 
         return $this->render('Footballers/edit.html.twig',[
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @return string
+     */
+    private function generateUniqueFileName()
+    {
+
+        return md5(uniqid());
     }
 
 

@@ -43,4 +43,22 @@ class TeamRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getOneOrNullResult();
     }
+
+    public function addDetailsTeam($team)
+    {
+        $em = $this->_em;
+        $em->persist($team);
+        $em->flush();
+    }
+
+    public function serachAndOrder()
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy("p.id",'DESC')
+            ->setMaxResults('1');
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
+
 }

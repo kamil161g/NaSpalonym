@@ -50,7 +50,7 @@ class detailsFootballerController extends Controller
                         'result' => $result,
                         'age' => $age,
                         'form' => $form->createView(),
-                        'id' => $footballer
+                        'id' => $footballer,
                     ]);
 
                 }

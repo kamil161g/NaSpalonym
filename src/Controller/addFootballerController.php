@@ -31,7 +31,7 @@ class addFootballerController extends Controller
                         ->getRepository(Footballer::class)
                         ->searchId();
 
-                    $addDefault = $this->getDoctrine()
+                        $this->getDoctrine()
                         ->getRepository(InformationFb::class)
                         ->addDefault($informationFb, $fooballer);
 

@@ -63,6 +63,23 @@ class InformationFb
     private $plainSeason;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $brochure;
+
+    public function getBrochure()
+    {
+        return $this->brochure;
+    }
+
+    public function setBrochure($brochure)
+    {
+        $this->brochure = $brochure;
+
+        return $this;
+    }
+
+    /**
      * @return mixed
      */
     public function getPlainSeason()

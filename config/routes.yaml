@@ -27,12 +27,20 @@ app_edit_details:
 
 #----------------------------------------------------------------------------------------TEAM:
 
+app_add_team:
+    path: /addteam
+    controller: App\Controller\AddTeamController:addTeamAction
+
+app_edit_details_team:
+    path: /editteam/{team}
+    controller: App\Controller\EditDetailsTeamController:editDetailsAction
+
 app_search_team:
     path: /searchteam
     controller: App\Controller\searchTeamController::searchTeamAction
 
 app_details_team:
-    path: /detailsteam/{id}
+    path: /detailsteam/{team}
     controller: App\Controller\detailsTeamController::detailsTeamAction
 
 #----------------------------------------------------------------------------------------MATCHS:
@@ -83,3 +91,11 @@ app_show_table:
     controller: App\Controller\ShowTableController:showTableAction
 
 
+#----------------------------------------------------------------------------------------LOGIN:
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController:login
+
+logout:
+    path: /logout

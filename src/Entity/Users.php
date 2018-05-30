@@ -4,51 +4,126 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  * @UniqueEntity("email", message="Ten Email jest już używany.")
  */
-class Users implements UserInterface
+class Users implements UserInterface, \Serializable
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", nullable=false)
-     */
-    private $name;
-
-    /**
-     * @ORM\Column(type="string", nullable=false)
-     */
-    private $surname;
-
-    /**
-     * @ORM\Column(type="string", nullable=false)
-     */
-    private $email;
-
-    /**
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\Column(type="string", length=64)
      */
     private $password;
-
 
     private $plainPassword;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="string", length=254, unique=true)
      */
-    private $roles;
+    private $email;
 
-    public function __construct() {
-        $this->roles = array('ROLE_USER');
+    /**
+     * @ORM\Column(type="string", length=254)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=254)
+     */
+    private $surname;
+
+    /**
+     * @ORM\Column(name="is_active", type="boolean")
+     */
+    private $isActive;
+
+
+
+    public function __construct()
+    {
+        $this->isActive = true;
+        // may not be needed, see section on salt below
+        // $this->salt = md5(uniqid('', true));
+    }
+
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    public function getSalt()
+    {
+        // you *may* need a real salt depending on your encoder
+        // see section on salt below
+        return null;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->password,
+            $this->name,
+            $this->surname,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->email,
+            $this->password,
+            $this->name,
+            $this->surname,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+    /**
+     * @param mixed $password
+     */
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
     }
 
     /**
@@ -59,12 +134,37 @@ class Users implements UserInterface
         return $this->id;
     }
 
+
     /**
-     * @param mixed $id
+     * @return mixed
      */
-    public function setId($id)
+    public function getEmail()
     {
-        $this->id = $id;
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
     }
 
     /**
@@ -100,30 +200,6 @@ class Users implements UserInterface
     }
 
     /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param mixed $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
      * @param mixed $password
      */
     public function setPassword($password)
@@ -131,41 +207,9 @@ class Users implements UserInterface
         $this->password = $password;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPlainPassword()
-    {
-        return $this->plainPassword;
-    }
 
-    /**
-     * @param mixed $password
-     */
-    public function setPlainPassword($password)
-    {
-        $this->plainPassword = $password;
-    }
 
-    public function getSalt()
-    {
-        // The bcrypt and argon2i algorithms don't require a separate salt.
-        // You *may* need a real salt if you choose a different encoder.
-        return null;
-    }
 
-    public function getRoles()
-    {
-        return $this->roles;
-    }
 
-    public function eraseCredentials()
-    {
-    }
-
-    public function getUsername()
-    {
-        return $this->username;
-    }
 
 }

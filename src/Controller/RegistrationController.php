@@ -30,6 +30,7 @@ class RegistrationController extends Controller
                     ->getRepository(Users::class)
                     ->addUser($users, $password);
 
+
                 return $this->redirectToRoute('app_index');
             }
 

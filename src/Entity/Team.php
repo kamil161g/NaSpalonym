@@ -17,6 +17,7 @@ class Team
      */
     private $id;
 
+
     /**
      * @ORM\Column(type="string", nullable=true)
      */
@@ -43,15 +44,18 @@ class Team
     /**
      * @var InformationTeam[]|ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\InformationTeam", mappedBy="club_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\InformationTeam", mappedBy="team")
      * @ORM\JoinColumn(name="id", referencedColumnName="id")
      */
-    private $description;
+    private $team;
+
+
 
     public function __construct()
     {
         $this->footballer = new ArrayCollection();
-        $this->description = new ArrayCollection();
+        $this->team = new ArrayCollection();
+
     }
 
     /**
@@ -88,10 +92,9 @@ class Team
     }
 
     /**
-     * @param Team|null $division
      * @return $this
      */
-    public function setDivision(Team $division = null)
+    public function setDivision($division)
     {
         $this->division = $division;
 
@@ -107,10 +110,9 @@ class Team
     }
 
     /**
-     * @param Team|null $league
      * @return $this
      */
-    public function setLeague(Team $league = null)
+    public function setLeague($league)
     {
         $this->league = $league;
 
@@ -137,20 +139,25 @@ class Team
         return $this->getLeague();
     }
 
+
+
     /**
-     * @return mixed
+     * @param InformationTeam $informationTeam
+     * @return $this
      */
-    public function getDescription()
+    public function setTeam(InformationTeam $informationTeam)
     {
-        return $this->description;
+        $this->team[] = $informationTeam;
+
+        return $this;
     }
 
     /**
-     * @param mixed $description
+     * @return InformationTeam[]|ArrayCollection
      */
-    public function setDescription($description)
+    public function getTeam()
     {
-        $this->description = $description;
+        return $this->team;
     }
 
 
