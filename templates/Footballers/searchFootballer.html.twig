@@ -40,7 +40,7 @@
             </h3>
 
             <h5>
-                <a href="{{ path('app_details_team',{'id': footballer.0.club.id|default}) }}" style="color: black">
+                <a href="{{ path('app_details_team',{'team': footballer.0.club.id|default}) }}" style="color: black">
                     {{ footballer.0.club.name|default('Nie podano') }}
                 </a>
             </h5>

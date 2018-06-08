@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\InformationFb;
 use App\Entity\Matchs;
+use App\Entity\PlayTime;
 use App\Entity\Shooter;
 use App\Entity\Team;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -67,13 +68,24 @@ class detailsMatchController extends Controller
             ->findBy(['match' => $id, 'shooter' => $searchG]);
 
 
+                $squadH = $this->getDoctrine()
+                    ->getRepository(PlayTime::class)
+                    ->findSquad($hostId, $id);
+
+                $squadG = $this->getDoctrine()
+                    ->getRepository(PlayTime::class)
+                    ->findSquad($guestId, $id);
+
+
 
         return $this->render("Matchs/details.html.twig", [
             'matchs' => $details,
             'now' => $now,
             'timematch' => $timematch,
             'hostGoal' => $hosts,
-            'guestGoal' => $guests
+            'guestGoal' => $guests,
+            'squadH' => $squadH,
+            'squadG' => $squadG
         ]);
     }
 

@@ -21,14 +21,32 @@
             <a href="{{ path('app_search_fb') }}" class="btn btn-default">Wyszukaj Piłkarza</a>
             <a href="{{ path('app_search_team') }}" class="btn btn-default">Wyszukaj Drużynę</a>
 
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('app_add_match') }}" class="btn btn-default">Dodaj mecz</a>
+                    <a href="{{ path('app_add_fb') }}" class="btn btn-default">Dodaj piłkarza</a>
+                    <a href="{{ path('app_add_team') }}" class="btn btn-default">Dodaj Drużynę</a>
 
-            <a href="{{ path('app_add_match') }}" class="btn btn-default">Dodaj mecz</a>
+                {% endif %}
+
+
+
+
             <a href="{{ path('app_show_match') }}" class="btn btn-default">Wyszukaj mecze</a>
-            <a href="{{ path('app_add_fb') }}" class="btn btn-default">Dodaj piłkarza</a>
             <a href="{{ path('app_show_stats') }}" class="btn btn-default">Statystyki</a>
             <a href="{{ path('app_show_table') }}" class="btn btn-default">Tabela</a>
-            <a href="{{ path('app_add_team') }}" class="btn btn-default">Dodaj Drużynę</a>
             <a href="{{ path('app_new_user') }}" style="background-color: red;" class="btn btn-default">Rejestracja</a>
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                    <a href="{{ path('logout') }}" class="btn btn-warning">Wyloguj się</a>
+
+
+                {% endif %}
+
+                {% if  not is_granted('IS_AUTHENTICATED_FULLY')  %}
+                    <a href="{{ path('app_login') }}" class="btn btn-success">Zaloguj się</a>
+
+                {% endif %}
 
             </ul>
         </nav>

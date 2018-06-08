@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+
+        <div class="container" >
+            {% for message in app.flashes("success") %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+            {% endfor %}
+
+            {% for message in app.flashes("error") %}
+                <div class="alert alert-danger" role="alert">{{ message }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="container">
+
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            {{ form_row(form.hosts, {'attr': {'class': 'form-control', 'style': 'width: auto'}}) }}
+            {{ form_row(form.guests, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+            {{ form_row(form.description, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
+
+
+            </br>
+            {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
+
+
+            {{ form_end(form) }}
+        </div>
+
+
+
+
+    {% endblock %}

@@ -10,8 +10,9 @@
                 {{ form_row(form.plainSeason, {'attr': {'class': 'form-control', 'style': 'width: 50%'}}) }}
                 {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
             {{ form_end(form) }}
-
+      {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_MODERATOR") %}
         <a href="{{ path('app_edit_details', {'footballer': id}) }}" class="btn btn-default">Edytuj</a>
+      {% endif %}
         </br>
 
 

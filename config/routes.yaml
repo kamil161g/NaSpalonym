@@ -70,6 +70,21 @@ app_add_points:
     path: /match/addpoints/{id}
     controller: App\Controller\AddPointsController::addPointsAction
 
+app_add_squad:
+    path: /match/addsquad/{id}
+    controller: App\Controller\AddSquadController:addSquadAction
+
+app_delete_squad:
+    path: /match/deletesquad/{id}
+    controller: App\Controller\AddSquadController:deleteSquadAction
+
+app_changFbH:
+    path: /match/changefbhost/{id}
+    controller: App\Controller\ChangeFootballerController:chagneFbHostAction
+
+app_changFbG:
+    path: /match/changefbguest/{id}
+    controller: App\Controller\ChangeFootballerController:chagneFbGuestAction
 
 #----------------------------------------------------------------------------------------STATS:
 

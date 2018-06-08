@@ -78,6 +78,14 @@ class Matchs
     private $match;
 
     /**
+     * @var PlayTime[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\PlayTime", mappedBy="match")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $playTime;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $status;
@@ -86,6 +94,7 @@ class Matchs
     public function __construct()
     {
         $this->match = new ArrayCollection();
+        $this->playTime = new ArrayCollection();
     }
 
     /**
@@ -247,6 +256,24 @@ class Matchs
     {
         $this->status = $status;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPlayTime()
+    {
+        return $this->playTime;
+    }
+
+    /**
+     * @param mixed $playTime
+     */
+    public function setPlayTime($playTime)
+    {
+        $this->playTime = $playTime;
+    }
+
+
 
 
 

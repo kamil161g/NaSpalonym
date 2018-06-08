@@ -49,12 +49,21 @@ class Team
      */
     private $team;
 
+    /**
+     * @var PlayTime[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\PlayTime", mappedBy="club")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $playTime;
+
 
 
     public function __construct()
     {
         $this->footballer = new ArrayCollection();
         $this->team = new ArrayCollection();
+        $this->playTime = new ArrayCollection();
 
     }
 
@@ -159,6 +168,24 @@ class Team
     {
         return $this->team;
     }
+
+    /**
+     * @return PlayTime[]|ArrayCollection
+     */
+    public function getPlayTime()
+    {
+        return $this->playTime;
+    }
+
+    /**
+     * @param PlayTime[]|ArrayCollection $playTime
+     */
+    public function setPlayTime($playTime)
+    {
+        $this->playTime = $playTime;
+    }
+
+
 
 
 
