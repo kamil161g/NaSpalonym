@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.today, {'attr': { 'style': 'color:black;'}}) }}
+        {{ form_row(form.submit,{'attr': {'class': 'btn btn-success', 'style': 'width: 10%'}}) }}
+
+
+
+        {{ form_end(form) }}
+
+        {% if match is defined %}
+
+
+            {% for match in match %}
+
+
+                <h3>
+                    <div class="container" style="background-color: #868686">
+                        Dywizja:
+                        {{ match.division }}
+                        Klasa:
+                        {{ match.league }}
+                        |
+                    <a href="{{ path('app_details_match', {'id': match.id}) }}" style="color: black; text-decoration: none;">
+                        {{ match.hostTeam }}
+                        Vs
+                        {{ match.guestTeam }}
+
+                        {{ match.goalHost }}
+                        :
+                        {{ match.goalGuest }}
+
+                    </a>
+
+                        {% if match.endMatch <  "now"|date("Y/m/d H:i:s")  %}
+
+                            <p style="color: darkred">KONIEC</p>
+
+                            {% else %}
+
+                                <p style="color: #5eb5e0">Trwa...</p>
+                            {% endif  %}
+                    </div>
+                </h3>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+    {% endblock %}

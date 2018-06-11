@@ -15,8 +15,11 @@ class addMatchController extends Controller
     public function createAction(Request $request)
     {
         $match = new Matchs();
+
          $form = $this->createForm(addMatchType::class, $match);
+
             $form->handleRequest($request);
+
                 if ($form->isSubmitted()) {
 
 

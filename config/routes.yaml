@@ -1,7 +1,7 @@
 
 app_index:
     path: /
-    controller: App\Controller\indexController::showIndexAction
+    controller: App\Controller\TodayMatchController::showMatchsAction
 
 app_live_show:
     path: /live

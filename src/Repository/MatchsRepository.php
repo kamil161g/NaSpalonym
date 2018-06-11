@@ -98,4 +98,17 @@ class MatchsRepository extends ServiceEntityRepository
 
     }
 
+    public function findMatchs($czas, $maxczas)
+    {
+
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.startMatch >= :czas')
+            ->andWhere('p.startMatch <= :maxCzas')
+            ->setParameter('czas', $czas)
+            ->setParameter('maxCzas', $maxczas);
+
+        return $qb->getQuery()->getArrayResult();
+
+    }
+
 }

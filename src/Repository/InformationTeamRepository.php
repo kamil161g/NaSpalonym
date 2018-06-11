@@ -93,14 +93,14 @@ class InformationTeamRepository extends ServiceEntityRepository
         $detailsGuest->setMatchs($detailsGuest->getMatchs()+1);
         $detailsHost->setMatchs($detailsHost->getMatchs()+1);
         $detailsGuest->setWins($detailsGuest->getWins()+1);
-        $detailsHost->setLost($detailsGuest->getLost()+1);
+        $detailsHost->setLost($detailsHost->getLost()+1);
         $em->persist($detailsHost);
         $em->persist($detailsGuest);
         $em->flush();
 
     }
 
-    public function addDraw($detailsHost, $searchTime, $detailsGuest, $goalHost, $goalGuest)
+    public function addDraw($detailsHost, $detailsGuest, $goalHost, $goalGuest)
     {
         $em = $this->_em;
         $detailsHost->setGoalsScored($detailsHost->getGoalsScored()+$goalHost);

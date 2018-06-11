@@ -59,34 +59,39 @@ class detailsMatchController extends Controller
             $searchG[] = $item->getFootballer();
         }
 
-        $hosts = $this->getDoctrine()
-            ->getRepository(Shooter::class)
-            ->findBy(['match' => $id, 'shooter' => $searchH]);
+        if(!empty($searchH) && !empty($searchG)) {
 
-        $guests = $this->getDoctrine()
-            ->getRepository(Shooter::class)
-            ->findBy(['match' => $id, 'shooter' => $searchG]);
+            $hosts = $this->getDoctrine()
+                ->getRepository(Shooter::class)
+                ->findBy(['match' => $id, 'shooter' => $searchH]);
 
-
-                $squadH = $this->getDoctrine()
-                    ->getRepository(PlayTime::class)
-                    ->findSquad($hostId, $id);
-
-                $squadG = $this->getDoctrine()
-                    ->getRepository(PlayTime::class)
-                    ->findSquad($guestId, $id);
+            $guests = $this->getDoctrine()
+                ->getRepository(Shooter::class)
+                ->findBy(['match' => $id, 'shooter' => $searchG]);
 
 
+            $squadH = $this->getDoctrine()
+                ->getRepository(PlayTime::class)
+                ->findSquad($hostId, $id);
 
-        return $this->render("Matchs/details.html.twig", [
-            'matchs' => $details,
-            'now' => $now,
-            'timematch' => $timematch,
-            'hostGoal' => $hosts,
-            'guestGoal' => $guests,
-            'squadH' => $squadH,
-            'squadG' => $squadG
-        ]);
+            $squadG = $this->getDoctrine()
+                ->getRepository(PlayTime::class)
+                ->findSquad($guestId, $id);
+
+            return $this->render("Matchs/details.html.twig", [
+                'matchs' => $details,
+                'now' => $now,
+                'timematch' => $timematch,
+                'hostGoal' => $hosts,
+                'guestGoal' => $guests,
+                'squadH' => $squadH,
+                'squadG' => $squadG
+            ]);
+
+        }
+
+        return $this->redirectToRoute("app_index");
+
     }
 
 

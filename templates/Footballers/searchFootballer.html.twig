@@ -18,8 +18,8 @@
 
         {{ form_end(form) }}
     </div>
-
-        <h4>Ostatnio dodani:(dla admina)</h4>
+    {% if is_granted("ROLE_ADMIN") %}
+        <h4>Ostatnio dodani:</h4>
          {% for last in lastAdd %}
 
              <h4><li><a href="{{ path('app_details_fb',{'footballer': last.id}) }}">
@@ -27,6 +27,7 @@
              </a> </li></h4>
 
         {% endfor %}
+    {% endif %}
 <hr>
     {% if footballer is defined %}
 

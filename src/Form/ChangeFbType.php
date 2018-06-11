@@ -24,6 +24,7 @@ class ChangeFbType extends AbstractType
             ->add('hosts',EntityType::class,[
                 'expanded' => true,
                 'multiple' => true,
+                'post_max_size_message' => 2,
                 'label' => 'Schodzi:',
                 'class' => 'App\Entity\InformationFb',
                 'query_builder' => function (EntityRepository $er) use ($options) {

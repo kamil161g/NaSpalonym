@@ -86,8 +86,6 @@ class InformationTeam
     }
 
 
-
-
     /**
      * @ORM\Column(type="string", nullable=true)
      */

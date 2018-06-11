@@ -44,6 +44,7 @@ class AddSquadController extends Controller
             $guests = $form->get('guests')->getData();
             $clubH = $searchIdHost;
             $clubG = $searchIdGuest;
+            $season = $this->getParameter("season.global_param");
 
             //            $this->getDoctrine()
             //                ->getRepository(PlayTime::class)
@@ -56,6 +57,22 @@ class AddSquadController extends Controller
                         'footballer' => $item->getFootballer(),
                         'club' => $clubH,
                         'match' => $matchs]);
+
+                $searchInformationFb = $this->getDoctrine()
+                    ->getRepository(InformationFb::class)
+                    ->findBy([
+                        'footballer' => $item->getFootballer(),
+                        'season' => $season]);
+
+                foreach ($searchInformationFb as $item) {
+
+                    $em = $this->getDoctrine()->getManager();
+                    $item->setMatchs($item->getMatchs()+1);
+                    $em->persist($item);
+                    $em->flush();
+                }
+
+
 
             }
 

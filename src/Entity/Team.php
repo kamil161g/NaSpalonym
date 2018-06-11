@@ -125,7 +125,6 @@ class Team
     {
         $this->league = $league;
 
-        return $this;
     }
 
     /**
@@ -145,9 +144,8 @@ class Team
     }
 
     function __toString() {
-        return $this->getLeague();
+        return $this->getName();
     }
-
 
 
     /**
@@ -184,13 +182,6 @@ class Team
     {
         $this->playTime = $playTime;
     }
-
-
-
-
-
-
-
 
 
 }

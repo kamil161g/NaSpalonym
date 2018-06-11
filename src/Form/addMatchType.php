@@ -4,6 +4,9 @@ namespace App\Form;
 
 
 use App\Entity\Matchs;
+use App\Entity\Team;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -20,17 +23,21 @@ class addMatchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('hostTeam',ChoiceType::class,array(
-                'choices'  => array(
-                    'LKS Czeluśnica' => 'LKS Czeluśnica',
-                    'Umieszcz' => 'Umieszcz',
-                ),'label' => 'Gospodzarz:' ))
+//            ->add('hostTeam',ChoiceType::class,array(
+//                'choices'  => array(
+//                    'LKS Czeluśnica' => 'LKS Czeluśnica',
+//                    'Umieszcz' => 'Umieszcz',
+//                    'Przykladowa1' => 'Przykladowa1'
+//                ),'label' => 'Gospodzarz:' ))
+                ->add('hostTeam', EntityType::class,[
+                    'class' => Team::class,
+                'choice_value' => 'name',
 
-            ->add('guestTeam',ChoiceType::class,array(
-                'choices'  => array(
-                    'LKS Czeluśnica' => 'LKS Czeluśnica',
-                    'Umieszcz' => 'Umieszcz',
-                ),'label' => 'Gość:' ))
+            ])
+            ->add('guestTeam', EntityType::class,[
+                'class' => Team::class,
+                'choice_value' => 'name',
+            ])
             ->add('division',ChoiceType::class,array(
                 'choices'  => array(
                     'I' => 1,
@@ -46,12 +53,6 @@ class addMatchType extends AbstractType
             ->add('goalGuest',HiddenType::class,['data'=> 0])
             ->add('startMatch', DateTimeType::class, ["data" => new \DateTime('today'),'label' => 'Data rozpoczęcia::'])
             ->add('submit', SubmitType::class, ['label' => 'Dodaj']);
-    }
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => Matchs::class,
-        ]);
     }
 }
 
