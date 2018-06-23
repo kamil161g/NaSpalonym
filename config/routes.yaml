@@ -98,6 +98,14 @@ app_new_user:
     path: /registration
     controller: App\Controller\RegistrationController:addNewUserAction
 
+app_success_register:
+    path: /registration/{activatekey}
+    controller: App\Controller\RegistrationController:successRegistrationAction
+
+app_info_registration:
+    path: /registration/info
+    controller: App\Controller\RegistrationController:infoRegistrationAction
+
 
 #----------------------------------------------------------------------------------------TABLE:
 
@@ -114,3 +122,5 @@ app_login:
 
 logout:
     path: /logout
+
+

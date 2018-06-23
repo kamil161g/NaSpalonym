@@ -13,12 +13,24 @@ class UsersRepository extends ServiceEntityRepository
         parent::__construct($registry, Users::class);
     }
 
-    public function addUser($user, $pass)
+    public function addUser($user, $pass, $key)
     {
 
         $em = $this->_em;
-        $em->persist($user);
         $user->setPassword($pass);
+        $user->setActivatekey($key);
+        $em->persist($user);
+        $em->flush();
+
+    }
+
+    public function changeActive($user)
+    {
+
+        $em = $this->_em;
+        $user->setIsActive(true);
+        $user->setActivatekey(NULL);
+        $em->persist($user);
         $em->flush();
 
     }

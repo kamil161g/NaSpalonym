@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -50,6 +51,7 @@ class DeleteSquadType extends AbstractType
                 'choice_label' => function (PlayTime $x) {
                     return $x->getFootballer()->getName().' '.$x->getFootballer()->getSurname();
                 },])
+            ->add('description', TextareaType::class, ['label' => 'Opis:'])
             ->add('submit',SubmitType::class,['label' => 'Dodaj']);
     }
 

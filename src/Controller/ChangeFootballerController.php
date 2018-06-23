@@ -9,10 +9,10 @@
 namespace App\Controller;
 
 
+use App\Entity\InformationFb;
 use App\Entity\Matchs;
 use App\Entity\PlayTime;
 use App\Entity\Team;
-use App\Form\AddSquadType;
 use App\Form\ChangeFbType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,18 +35,43 @@ class ChangeFootballerController extends Controller
         $form = $this->createForm(ChangeFbType::class, null, [
             'id' => $searchIdHost->getId(),
             'id2' => $searchIdHost->getId(),
+            'id3' => $id,
         ]);
 
             $form->handleRequest($request);
 
-                if($form->isSubmitted() && $form->isValid()){
+                if($form->isSubmitted() && $form->isValid()) {
 
                     $hosts = $form->get('hosts')->getData();
                     $hostsNew = $form->get('guests')->getData();
                     $description = $form->get('description')->getViewData();
                     $clubH = $searchIdHost;
 
-                    if(!empty($hosts) && !empty($hostsNew)){
+
+
+                        $season = $this->getParameter("season.global_param");
+
+                        $searchInformationFb = $this->getDoctrine()
+                            ->getRepository(InformationFb::class)
+                            ->findBy([
+                                'footballer' => $hosts[0]->getFootballer(),
+                                'season' => $season]);
+
+                    $searchInformationFbNew = $this->getDoctrine()
+                        ->getRepository(PlayTime::class)
+                        ->findOneBy([
+                            'footballer' => $hostsNew[0]->getFootballer(),
+                            'match' => $matchs,
+                            'club' => $clubH
+                        ]);
+
+                        $em = $this->getDoctrine()->getManager();
+                        $searchInformationFb[0]->setMatchs($searchInformationFb[0]->getMatchs() + 1);
+                        $em->persist($searchInformationFb[0]);
+                        $em->flush();
+
+
+                        if (!empty($hosts) && !empty($hostsNew)) {
 
                             $searchPlayFb = $this->getDoctrine()
                                 ->getRepository(PlayTime::class)
@@ -56,23 +81,20 @@ class ChangeFootballerController extends Controller
                                     'match' => $matchs
                                 ]);
                             $em = $this->getDoctrine()->getManager();
-                            $searchPlayFb->setPlay(0);
-                            $playTime = new PlayTime();
-                            $playTime->setFootballer($hostsNew[0]->getFootballer());
-                            $playTime->setClub($clubH);
-                            $playTime->setMatch($matchs);
-                            $playTime->setDescription($description);
-                            $em->persist($playTime);
+                            $searchPlayFb->setPlay(3);
+                            $searchInformationFbNew->setPlay(1);
+                            $searchInformationFbNew->setDescription($description);
+                            $em->persist($searchInformationFbNew);
+                            $em->persist($searchPlayFb);
                             $em->flush();
 
 
-                            $this->redirectToRoute("app_details_match", ['id' => $id]);
-                            $this->addFlash("success", "Dokonałeś zmiany.");
-                        }else
+                            return $this->redirectToRoute("app_details_match", ['id' => $id]);
+                        } else
 
-                        $this->addFlash("error", "Wybierz zawodników.");
+                            $this->addFlash("error", "Wybierz zawodników.");
 
-                }
+                    }
 
          return $this->render("Matchs/addSquad.html.twig", [
              'form' => $form->createView()
@@ -95,11 +117,12 @@ class ChangeFootballerController extends Controller
         $form = $this->createForm(ChangeFbType::class, null, [
             'id' => $searchIdGuest->getId(),
             'id2' => $searchIdGuest->getId(),
+            'id3' => $id,
         ]);
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()) {
 
             $hosts = $form->get('hosts')->getData();
             $hostsNew = $form->get('guests')->getData();
@@ -107,7 +130,30 @@ class ChangeFootballerController extends Controller
             $clubH = $searchIdGuest;
 
 
-            if(!empty($hosts) && !empty($hostsNew)){
+
+            $season = $this->getParameter("season.global_param");
+
+            $searchInformationFb = $this->getDoctrine()
+                ->getRepository(InformationFb::class)
+                ->findBy([
+                    'footballer' => $hosts[0]->getFootballer(),
+                    'season' => $season]);
+
+            $searchInformationFbNew = $this->getDoctrine()
+                ->getRepository(PlayTime::class)
+                ->findOneBy([
+                    'footballer' => $hostsNew[0]->getFootballer(),
+                    'match' => $matchs,
+                    'club' => $clubH
+                ]);
+
+            $em = $this->getDoctrine()->getManager();
+            $searchInformationFb[0]->setMatchs($searchInformationFb[0]->getMatchs() + 1);
+            $em->persist($searchInformationFb[0]);
+            $em->flush();
+
+
+            if (!empty($hosts) && !empty($hostsNew)) {
 
                 $searchPlayFb = $this->getDoctrine()
                     ->getRepository(PlayTime::class)
@@ -117,21 +163,18 @@ class ChangeFootballerController extends Controller
                         'match' => $matchs
                     ]);
                 $em = $this->getDoctrine()->getManager();
-                $searchPlayFb->setPlay(0);
-                $playTime = new PlayTime();
-                $playTime->setFootballer($hostsNew[0]->getFootballer());
-                $playTime->setClub($clubH);
-                $playTime->setMatch($matchs);
-                $playTime->setDescription($description);
-                $em->persist($playTime);
+                $searchPlayFb->setPlay(3);
+                $searchInformationFbNew->setPlay(1);
+                $searchInformationFbNew->setDescription($description);
+                $em->persist($searchInformationFbNew);
+                $em->persist($searchPlayFb);
                 $em->flush();
 
 
-                $this->redirectToRoute("app_details_match", ['id' => $id]);
-                $this->addFlash("success", "Dokonałeś zmiany.");
-            }else
-                $this->addFlash("error", "Wybierz zawodników.");
+                return $this->redirectToRoute("app_details_match", ['id' => $id]);
+            } else
 
+                $this->addFlash("error", "Wybierz zawodników.");
 
         }
 

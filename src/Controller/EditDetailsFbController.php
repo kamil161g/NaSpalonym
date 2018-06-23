@@ -21,10 +21,13 @@ class EditDetailsFbController extends Controller
     public function editDetailsAction(Footballer $footballer, Request $request)
     {
 
+        $this->denyAccessUnlessGranted(['ROLE_ADMIN', 'ROLE_MODERATOR'], null, 'Brak dostępu.');
+
         $informationFb = new InformationFb();
 
 
         $form = $this->createForm(addDetailsFbType::class, $informationFb);
+
 
         $form->handleRequest($request);
 
@@ -32,16 +35,19 @@ class EditDetailsFbController extends Controller
 
                     $file = $informationFb->getBrochure();
 
-                    $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+                    if(!empty($file)) {
+
+                        $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
 
 
-                    $file->move(
-                        $this->getParameter('brochures_directory'),
-                        $fileName
-                    );
+                        $file->move(
+                            $this->getParameter('brochures_directory'),
+                            $fileName
+                        );
 
 
-                    $informationFb->setBrochure($fileName);
+                        $informationFb->setBrochure($fileName);
+                    }
 
                     $club = $form->get('club')->getData();
                     $season = $form->get('season')->getViewData();
@@ -76,7 +82,7 @@ class EditDetailsFbController extends Controller
                         ->getRepository(InformationFb::class)
                        ->addDetailsFb($informationFb,$club,$footballer);
 
-                $this->addFlash('success', 'Operacja wykonana prawidłowo.');
+                return $this->redirectToRoute("app_details_fb",['footballer' => $footballer->getId()]);
 
             }
 

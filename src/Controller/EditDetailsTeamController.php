@@ -32,16 +32,20 @@ class EditDetailsTeamController extends Controller
 
             $file = $informationTeam->getBrochure();
 
-            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+            if(!empty($file)){
+
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
 
 
-            $file->move(
-                $this->getParameter('herbs'),
-                $fileName
-            );
+                $file->move(
+                    $this->getParameter('herbs'),
+                    $fileName
+                );
 
 
-            $informationTeam->setBrochure($fileName);
+                $informationTeam->setBrochure($fileName);
+
+            }
 
             $season = $form->get('season')->getViewData();
             $seasonDefault = 'Nie podano informajci';
@@ -75,7 +79,7 @@ class EditDetailsTeamController extends Controller
                 ->getRepository(InformationTeam::class)
                 ->addDetailsTeam($informationTeam,$team);
 
-            $this->addFlash('success', 'Operacja wykonana prawidłowo.');
+            return $this->redirectToRoute("app_details_team",['team' => $team->getId()]);
 
         }
 

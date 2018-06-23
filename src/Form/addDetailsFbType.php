@@ -54,7 +54,7 @@ class addDetailsFbType extends AbstractType
                 'choice_label' => 'name',
                 'choice_value' => 'id'
             ))
-            ->add('brochure', FileType::class, array('label' => 'Avatar Zawodnika'))
+            ->add('brochure', FileType::class, array('label' => 'Avatar Zawodnika', 'required' => false))
             ->add('submit', SubmitType::class, ['label' => 'Prześlij']);
     }
 
@@ -62,7 +62,7 @@ class addDetailsFbType extends AbstractType
     {
         $resolver
             ->setDefaults([
-                'data_class' => InformationFb::class
+                'data_class' => InformationFb::class,
             ]);
     }
 

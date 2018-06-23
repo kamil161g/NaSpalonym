@@ -55,7 +55,7 @@ class AddDetailsTeamType extends AbstractType
             ->add('draw', IntegerType::class, ['constraints' => new NotBlank([
                 'message' => 'To pole nie może być puste.']),
                 'label' => 'Remisy'])
-            ->add('brochure', FileType::class, array('label' => 'Herb'))
+            ->add('brochure', FileType::class, array('label' => 'Herb', 'required' => false))
             ->add('submit', SubmitType::class, ['label' => 'Prześlij']);
     }
 
@@ -63,7 +63,8 @@ class AddDetailsTeamType extends AbstractType
     {
         $resolver
             ->setDefaults([
-                'data_class' => InformationTeam::class
+                'data_class' => InformationTeam::class,
+                'novalidate' => 'novalidate'
             ]);
     }
 

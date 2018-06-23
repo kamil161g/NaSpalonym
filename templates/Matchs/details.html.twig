@@ -45,6 +45,7 @@
         <a href="{{ path('app_change_score',{'id': matchs.id}) }}" class="btn btn-success" >Dodaj gola</a></br></br>
         <a href="{{ path('app_change_score_delete',{'id': matchs.id}) }}" class="btn btn-danger" >Odejmij gola</a></br></br>
         <a href="{{ path('app_add_squad',{'id': matchs.id}) }}" class="btn btn-primary" >Wybierz składy</a></br></br>
+        <a href="{{ path('app_delete_squad',{'id': matchs.id}) }}" class="btn btn-warning" >Skasuj składy</a></br></br>
         {% if matchs.status != "Examined" %}
             {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_MODERATOR") %}
         <a href="{{ path('app_add_points',{'id': matchs.id}) }}" class="btn btn-warning" >Zakończ</a></br></br>
@@ -75,10 +76,13 @@
                 {% for squadH in squadH %}
                     {% if squadH.play == 0 %}
                         <a href{{ path('app_details_fb', {'footballer': squadH.footballer.id}) }}" class="btn btn-default">
-                            {{ squadH.footballer.name~" "~squadH.footballer.surname }} </a>(Zszedł)</br>
-                    {% else %}
-                    <a href="{{ path('app_details_fb', {'footballer': squadH.footballer.id}) }}" class="btn btn-primary">
-                        {{ squadH.footballer.name~" "~squadH.footballer.surname }}</a>
+                            {{ squadH.footballer.name~" "~squadH.footballer.surname }} </a>(Rezerwowy)</br>
+                    {% elseif squadH.play == 1  %}
+                    <a href="{{ path('app_details_fb', {'footballer': squadH.footballer.id}) }}" class="btn btn-success">
+                        {{ squadH.footballer.name~" "~squadH.footballer.surname }}</a><br/>
+                    {% elseif squadH.play == 3  %}
+                        <a href="{{ path('app_details_fb', {'footballer': squadH.footballer.id}) }}" class="btn btn-default">
+                            {{ squadH.footballer.name~" "~squadH.footballer.surname }}</a>(Zszedł)
                     </br>
                     {% endif %}
                 {% endfor %}
@@ -110,14 +114,16 @@
                 {% for squadG in squadG %}
                   {% if squadG.play == 0 %}
                     <a href{{ path('app_details_fb', {'footballer': squadG.footballer.id}) }}" class="btn btn-default">
-                    {{ squadG.footballer.name~" "~squadG.footballer.surname }} </a>(Zszedł)</br>
-                  {% else %}
-                    <a href="{{ path('app_details_fb', {'footballer': squadG.footballer.id}) }}" class="btn btn-default">
+                    {{ squadG.footballer.name~" "~squadG.footballer.surname }} </a>(Rezerwowy)</br>
+                  {% elseif squadG.play == 1 %}
+                    <a href="{{ path('app_details_fb', {'footballer': squadG.footballer.id}) }}" class="btn btn-success">
                         {{ squadG.footballer.name~" "~squadG.footballer.surname }}</a>
                     </br>
+                  {% elseif squadG.play == 3 %}
+                      <a href="{{ path('app_details_fb', {'footballer': squadG.footballer.id}) }}" class="btn btn-default">
+                          {{ squadG.footballer.name~" "~squadG.footballer.surname }}</a>(Zszedł)<br/>
                   {% endif %}
                 {% endfor %}
-
     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_MODERATOR') %}
         <a href="{{ path('app_changFbG', {'id': matchs.id}) }}" class="btn btn-danger">Dokonaj Zmiany</a>
     {% endif %}

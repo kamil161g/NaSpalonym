@@ -24,28 +24,35 @@ class ChangeFbType extends AbstractType
             ->add('hosts',EntityType::class,[
                 'expanded' => true,
                 'multiple' => true,
-                'post_max_size_message' => 2,
                 'label' => 'Schodzi:',
-                'class' => 'App\Entity\InformationFb',
+                'class' => 'App\Entity\PlayTime',
                 'query_builder' => function (EntityRepository $er) use ($options) {
                     return $er->createQueryBuilder('u')
-                        ->where('u.club = :id')
-                        ->setParameter('id', $options['id']);
+                        ->innerJoin('u.footballer','a')
+                        ->andWhere('u.club = :id')
+                        ->andWhere('u.match = :match')
+                        ->andWhere('u.play = 1')
+                        ->setParameter('id', $options['id'])
+                        ->setParameter('match', $options['id3']);
                 },
-                'choice_label' => function (InformationFb $x) {
+                'choice_label' => function (PlayTime $x) {
                     return $x->getFootballer()->getName().' '.$x->getFootballer()->getSurname();
                 },])
             ->add('guests',EntityType::class,[
                 'expanded' => true,
                 'multiple' => true,
                 'label' => 'Wchodzi:',
-                'class' => 'App\Entity\InformationFb',
+                'class' => 'App\Entity\PlayTime',
                 'query_builder' => function (EntityRepository $er) use ($options) {
                     return $er->createQueryBuilder('u')
-                        ->where('u.club = :id')
-                        ->setParameter('id', $options['id2']);
+                        ->innerJoin('u.footballer','a')
+                        ->andWhere('u.club = :id')
+                        ->andWhere('u.match = :match')
+                        ->andWhere('u.play = 0')
+                        ->setParameter('id', $options['id'])
+                        ->setParameter('match', $options['id3']);
                 },
-                'choice_label' => function (InformationFb $x) {
+                'choice_label' => function (PlayTime $x) {
                     return $x->getFootballer()->getName().' '.$x->getFootballer()->getSurname();
                 },])
             ->add('description', TextareaType::class, ['label' => 'Opis:'])
@@ -59,6 +66,8 @@ class ChangeFbType extends AbstractType
             ->setDefaults([
                 'id' => null,
                 'id2' => null,
+                'id3' => null,
+                'attr'=>array('novalidate'=>'novalidate')
             ]);
     }
 

@@ -90,11 +90,20 @@ class Matchs
      */
     private $status;
 
+    /**
+     * @var Users[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Users", mappedBy="id")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $users;
+
 
     public function __construct()
     {
         $this->match = new ArrayCollection();
         $this->playTime = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     /**
@@ -271,6 +280,22 @@ class Matchs
     public function setPlayTime($playTime)
     {
         $this->playTime = $playTime;
+    }
+
+    /**
+     * @return Users[]|ArrayCollection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * @param Users[]|ArrayCollection $users
+     */
+    public function setUsers($users)
+    {
+        $this->users = $users;
     }
 
 

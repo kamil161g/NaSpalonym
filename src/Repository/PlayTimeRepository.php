@@ -43,4 +43,19 @@ class PlayTimeRepository extends ServiceEntityRepository
 
     }
 
+    public function findFb($club, $match, $footballer, $play)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.club = :club')
+            ->andWhere('p.footballer = :footballer')
+            ->andWhere('p.match = :match')
+            ->andWhere('p.play = :play')
+            ->setParameter('club', $club)
+            ->setParameter('footballer', $footballer)
+            ->setParameter('play', $play)
+            ->setParameter('match', $match);
+
+        return $qb->getQuery()->getOneOrNullResult();
+
+    }
 }

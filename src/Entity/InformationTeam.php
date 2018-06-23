@@ -70,6 +70,14 @@ class InformationTeam
     private $plainSeason;
 
     /**
+     * @var Users
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="id")
+     *
+     */
+    private $users;
+
+    /**
      * @return mixed
      */
     public function getPlainSeason()
@@ -243,6 +251,22 @@ class InformationTeam
         $this->team = $team;
 
         return $this;
+    }
+
+    /**
+     * @return Users
+     */
+    public function getUsers(): Users
+    {
+        return $this->users;
+    }
+
+    /**
+     * @param Users $users
+     */
+    public function setUsers(Users $users)
+    {
+        $this->users = $users;
     }
 
 

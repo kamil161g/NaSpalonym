@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class RegistrationController extends Controller
 {
 
-    public function addNewUserAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function addNewUserAction(Request $request, UserPasswordEncoderInterface $passwordEncoder, \Swift_Mailer $mailer)
     {
         $users = new Users();
         $form = $this->createForm(RegistrationType::class, $users);
@@ -25,13 +25,31 @@ class RegistrationController extends Controller
 
                 $password = $passwordEncoder->encodePassword($users, $users->getPlainPassword());
 
+                $email = $form->get('email')->getViewData();
+                $name = $form->get('name')->getViewData();
+                $activate_key = md5(uniqid($email, true));
+
+                $message = (new \Swift_Message('Witamy nowego pasjonata :)'))
+                    ->setFrom('kamilgasior07test@gmail.com')
+                    ->setTo($email)
+                    ->setBody(
+                        $this->renderView(
+                            'Registration/email.html.twig',
+                            array(
+                                'name' => $name,
+                                'activatekey' => $activate_key)
+                        ),
+                        'text/html'
+                    );
+
+                $mailer->send($message);
 
                 $addUser = $this->getDoctrine()
                     ->getRepository(Users::class)
-                    ->addUser($users, $password);
+                    ->addUser($users, $password, $activate_key);
 
 
-                return $this->redirectToRoute('app_index');
+                return $this->redirectToRoute("app_index");
             }
 
                 if($form->isSubmitted() &&  $form->isValid() && !$this->captchaverify($request->get('g-recaptcha-response'))){
@@ -65,6 +83,27 @@ class RegistrationController extends Controller
     }
 
 
+//    public function infoRegistrationAction()
+//    {
+//
+//        return $this->render("Registration/info.html.twig");
+//    }
+
+
+    public function successRegistrationAction($activatekey)
+    {
+
+        $searchKey = $this->getDoctrine()
+            ->getRepository(Users::class)
+            ->findOneBy(['activatekey' => $activatekey]);
+
+        $this->getDoctrine()
+            ->getRepository(Users::class)
+            ->changeActive($searchKey);
+
+
+        return $this->render("Registration/success.html.twig");
+    }
 
 
 }

@@ -67,6 +67,14 @@ class InformationFb
      */
     private $brochure;
 
+    /**
+     * @var Users
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="id")
+     *
+     */
+    private $users;
+
     public function getBrochure()
     {
         return $this->brochure;
@@ -199,6 +207,22 @@ class InformationFb
         $this->club = $team;
 
         return $this;
+    }
+
+    /**
+     * @return Users
+     */
+    public function getUsers(): Users
+    {
+        return $this->users;
+    }
+
+    /**
+     * @param Users $users
+     */
+    public function setUsers(Users $users)
+    {
+        $this->users = $users;
     }
 
 

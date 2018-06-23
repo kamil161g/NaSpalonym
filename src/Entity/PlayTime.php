@@ -50,14 +50,20 @@ class PlayTime
     private $redCard;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $play = 1;
+    private $play;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="id")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $users;
 
     /**
      * @return mixed
@@ -191,6 +197,22 @@ class PlayTime
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * @param mixed $users
+     */
+    public function setUsers($users)
+    {
+        $this->users = $users;
     }
 
 

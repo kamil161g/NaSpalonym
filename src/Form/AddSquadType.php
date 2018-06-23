@@ -28,8 +28,10 @@ class AddSquadType extends AbstractType
                 'class' => 'App\Entity\InformationFb',
                 'query_builder' => function (EntityRepository $er) use ($options) {
                     return $er->createQueryBuilder('u')
-                        ->where('u.club = :id')
-                        ->setParameter('id', $options['id']);
+                        ->andWhere('u.season = :season')
+                        ->andWhere('u.club = :id')
+                        ->setParameter('id', $options['id'])
+                        ->setParameter('season', $options['season']);
                 },
                 'choice_label' => function (InformationFb $x) {
                     return $x->getFootballer()->getName().' '.$x->getFootballer()->getSurname();
@@ -58,6 +60,7 @@ class AddSquadType extends AbstractType
             ->setDefaults([
                 'id' => null,
                 'id2' => null,
+                'season' => null,
             ]);
     }
 

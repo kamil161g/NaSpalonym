@@ -67,6 +67,14 @@ class Footballer
     private $shooter;
 
     /**
+     * @var Users[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Users", mappedBy="id")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $users;
+
+    /**
      * @return mixed
      */
     public function getName()
@@ -174,6 +182,22 @@ class Footballer
     public function setPlayTime($playTime)
     {
         $this->playTime = $playTime;
+    }
+
+    /**
+     * @return Users[]|ArrayCollection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * @param Users[]|ArrayCollection $users
+     */
+    public function setUsers($users)
+    {
+        $this->users = $users;
     }
 
 

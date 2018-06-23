@@ -57,6 +57,13 @@ class Team
      */
     private $playTime;
 
+    /**
+     * @var Users[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Users", mappedBy="id")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $users;
 
 
     public function __construct()
@@ -182,6 +189,23 @@ class Team
     {
         $this->playTime = $playTime;
     }
+
+    /**
+     * @return Users[]|ArrayCollection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * @param Users[]|ArrayCollection $users
+     */
+    public function setUsers($users)
+    {
+        $this->users = $users;
+    }
+
 
 
 }

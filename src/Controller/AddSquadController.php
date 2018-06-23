@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 
-use App\Entity\InformationFb;
 use App\Entity\Matchs;
 use App\Entity\PlayTime;
 use App\Entity\Team;
@@ -30,10 +29,12 @@ class AddSquadController extends Controller
             ->getRepository(Team::class)
             ->searchId($searchTeams->getGuestTeam());
 
+        $season = $this->getParameter("season.global_param");
 
         $form = $this->createForm(AddSquadType::class, null, [
             'id' => $searchIdHost->getId(),
             'id2' => $searchIdGuest->getId(),
+            'season' => $season,
         ]);
 
         $form->handleRequest($request);
@@ -44,42 +45,38 @@ class AddSquadController extends Controller
             $guests = $form->get('guests')->getData();
             $clubH = $searchIdHost;
             $clubG = $searchIdGuest;
-            $season = $this->getParameter("season.global_param");
 
-            //            $this->getDoctrine()
-            //                ->getRepository(PlayTime::class)
-            //                ->add($footballer, $club, $id, $playTime);
+
+
             foreach ($hosts as $item) {
 
-                $searchFb = $this->getDoctrine()
+                $searchFbHost = $this->getDoctrine()
                     ->getRepository(PlayTime::class)
                     ->findBy([
                         'footballer' => $item->getFootballer(),
                         'club' => $clubH,
-                        'match' => $matchs]);
+                        'match' => $matchs,
+                        ]);
 
-                $searchInformationFb = $this->getDoctrine()
-                    ->getRepository(InformationFb::class)
+            }
+
+            foreach ($guests as $item) {
+
+                $searchFbGuest = $this->getDoctrine()
+                    ->getRepository(PlayTime::class)
                     ->findBy([
                         'footballer' => $item->getFootballer(),
-                        'season' => $season]);
-
-                foreach ($searchInformationFb as $item) {
-
-                    $em = $this->getDoctrine()->getManager();
-                    $item->setMatchs($item->getMatchs()+1);
-                    $em->persist($item);
-                    $em->flush();
-                }
-
-
+                        'club' => $clubG,
+                        'match' => $matchs,
+                    ]);
 
             }
 
 
-            if (empty($searchFb)) {
 
+            if (empty($searchFbHost) && empty($searchFbGuest)) {
 
+                $number2 = 1;
                 foreach ($hosts as $item) {
 
                     $playTime = new PlayTime();
@@ -88,11 +85,18 @@ class AddSquadController extends Controller
                     $playTime->setFootballer($item->getFootballer());
                     $playTime->setClub($clubH);
                     $playTime->setMatch($matchs);
+                    if($number2 <= 2)
+                    $playTime->setPlay(1);
+                    else
+                    $playTime->setPlay(0);
                     $em->persist($playTime);
                     $em->flush();
+
+                    $number2++;
                 }
 
 
+                $number3 = 1;
                 foreach ($guests as $item) {
 
 
@@ -102,10 +106,45 @@ class AddSquadController extends Controller
                     $playTime->setFootballer($item->getFootballer());
                     $playTime->setClub($clubG);
                     $playTime->setMatch($matchs);
+                    if($number3 <= 2)
+                        $playTime->setPlay(1);
+                    else
+                        $playTime->setPlay(0);
                     $em->persist($playTime);
                     $em->flush();
+
+                    $number3++;
+                }
+
+                $number = 1;
+                foreach ($hosts as $value) {
+
+                        $em = $this->getDoctrine()->getManager();
+                        if($number <= 2)
+                        $value->setMatchs($value->getMatchs() + 1);
+                        $em->persist($value);
+                        $em->flush();
+
+                    $number++;
+
+
+                }
+
+                $number4 = 1;
+                foreach ($guests as $value) {
+
+                    $em = $this->getDoctrine()->getManager();
+                    if($number4 <= 2)
+                        $value->setMatchs($value->getMatchs() + 1);
+                    $em->persist($value);
+                    $em->flush();
+
+                    $number4++;
+
+
                 }
             }
+
 
             return $this->redirectToRoute("app_details_match",['id' => $id]);
 
@@ -163,8 +202,7 @@ class AddSquadController extends Controller
 
             }
 
-            $this->redirectToRoute("app_delete_squad",['id' => $id]);
-            $this->addFlash("success", "Pomyślnie usunięto. Odśwież stronę.");
+            return $this->redirectToRoute("app_details_match",['id' => $id]);
 
         }
 
